@@ -182,7 +182,7 @@ export default function LandingPage() {
           </div>
 
           {/* Right Side: Phone Image mockup */}
-          <div className="absolute right-[16px] md:right-[20px] lg:right-[150px] z-0 sm:z-20 pointer-events-none mockup-container-fixed">
+          <div className="absolute right-[16px] md:right-[20px] lg:right-[150px] z-0 sm:z-20 pointer-events-none mockup-container-fixed hidden sm:block">
             <div className="relative w-full h-full flex items-center justify-center">
               {/* Ellipse 133 Glow Light behind phone */}
               <div
