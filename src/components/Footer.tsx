@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
@@ -17,10 +18,12 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="flex flex-col items-start p-0 md:pb-[32px] md:pl-[34px] gap-[24px] w-full xl:max-w-[477px] shrink-0">
             {/* Logo */}
-            <img
+            <Image
               src="/img/logo.png"
               alt="Bookly Logo"
               className="w-[120px] h-[32.22px] object-cover"
+              width={120}
+              height={32}
             />
 
             {/* Description Container */}
@@ -40,15 +43,19 @@ export default function Footer() {
               </span>
               {/* Icons wrapper */}
               <div className="flex flex-row items-center p-0 gap-[12px] w-[60px] h-[24px]">
-                <img
+                <Image
                   src="/Icons/apple.svg"
                   alt="Apple Icon"
                   className="w-6 h-6 object-contain"
+                  width={24}
+                  height={24}
                 />
-                <img
+                <Image
                   src="/Icons/android.svg"
                   alt="Android Icon"
                   className="w-6 h-6 object-contain"
+                  width={24}
+                  height={24}
                 />
               </div>
             </div>

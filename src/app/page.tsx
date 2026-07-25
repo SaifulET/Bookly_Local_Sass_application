@@ -1,11 +1,7 @@
-"use client";
-
-import React, { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import React from "react";
 import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Car04Icon, Clock01Icon, DashboardSquare02Icon, FootballIcon, HealtcareIcon, Location01Icon, Location05Icon, PartyIcon, SailboatOffshoreIcon, Search01Icon, StarIcon, WellnessIcon, SquareLock01Icon, User02Icon, File01Icon, FavouriteIcon, CreditCardPosIcon, Home01Icon, HeadsetIcon, ProfileIcon, Logout01Icon, ArrowDown01Icon, ArrowRight02Icon } from "@hugeicons/core-free-icons";
-import ServiceCard, { Recommendation } from "@/components/ServiceCard";
+import { Search01Icon, SquareLock01Icon } from "@hugeicons/core-free-icons";
 import Carousel from "@/components/landing-page/Carousel";
 import TrustedBusinessCard, { TrustedBusiness } from "@/components/TrustedBusinessCard";
 import WhyChooseUs from "@/components/landing-page/WhyChooseUs";
@@ -14,626 +10,13 @@ import BusinessMockup from "@/components/landing-page/BusinessMockup";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import EdgeSoftOrbsTop from "@/components/EdgeSoftOrbsTop";
-import Navbar from "@/components/Navbar";
-import BookAgainSection from "@/components/landing-page/BookAgainSection";
+import NavbarWrapper from "@/components/landing-page/NavbarWrapper";
+import TopBannerWrapper from "@/components/landing-page/TopBannerWrapper";
 import SearchBar from "@/components/landing-page/SearchBar";
-
-function useInView() {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setInView(entry.isIntersecting);
-      },
-      {
-        threshold: 0,
-        rootMargin: "0px 0px -10px 0px"
-      }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return { ref, inView };
-}
-
-function LandingStepCard({
-  index,
-  icon,
-  title,
-  description,
-}: {
-  index: number;
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}) {
-  const { ref, inView } = useInView();
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const delay = isMobile ? 0 : index * 150;
-
-  return (
-    <div ref={ref} className="flex-1 min-w-0 h-full">
-      <div
-        className={`relative flex flex-col items-start p-5 gap-10 bg-white border border-[#E8E6FF] rounded-xl hover:shadow-md hover:-translate-y-1.5 hover:border-[#2E9DA7]/30 hover:duration-300 transition-all duration-[1400ms] ease-out h-full ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-          }`}
-        style={{ transitionDelay: `${delay}ms` }}
-      >
-        {/* Icon Container */}
-        <div
-          className="w-[68px] h-[68px] bg-[#2E9DA7] rounded-xl flex items-center justify-center shrink-0"
-          style={{
-            transform: inView ? "scale(1)" : "scale(0.5)",
-            opacity: inView ? 1 : 0,
-            transition: `transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) ${delay + 300}ms, opacity 0.3s ease ${delay + 300}ms`,
-          }}
-        >
-          {icon}
-        </div>
-
-        {/* Text Area */}
-        <div className="flex flex-col gap-3 w-full flex-1">
-          <h3 className="text-[24px] font-medium leading-[32px] text-[#212121] tracking-tight font-poppins">
-            {title}
-          </h3>
-          <p className="text-[16px] font-normal leading-[24px] text-[#757575]">
-            {description}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
+import CategoryServicesSection from "@/components/landing-page/CategoryServicesSection";
+import LandingStepCard from "@/components/landing-page/LandingStepCard";
 
 export default function LandingPage() {
-  const router = useRouter();
-
-  const stepsContainerRef = useRef<HTMLDivElement | null>(null);
-  const [stepsVisible, setStepsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setStepsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-
-    if (stepsContainerRef.current) {
-      observer.observe(stepsContainerRef.current);
-    }
-
-    return () => {
-      if (stepsContainerRef.current) {
-        observer.unobserve(stepsContainerRef.current);
-      }
-    };
-  }, []);
-
-  // Handle direct navigation with hash on mount and hashchange
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const scrollToHowItWorks = () => {
-        const element = document.getElementById("how-it-works");
-        if (element) {
-          element.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-          return true;
-        }
-        return false;
-      };
-
-      const checkScrollFlag = () => {
-        if (sessionStorage.getItem("scrollToHowItWorks") === "true") {
-          sessionStorage.removeItem("scrollToHowItWorks");
-          scrollToHowItWorks();
-          const intervals = [100, 300, 600, 1000, 1500];
-          intervals.forEach((delay) => {
-            setTimeout(scrollToHowItWorks, delay);
-          });
-        }
-      };
-
-      checkScrollFlag();
-      window.addEventListener("popstate", checkScrollFlag);
-      return () => {
-        window.removeEventListener("popstate", checkScrollFlag);
-      };
-    }
-  }, []);
-
-  // State variables
-  const [showBanner, setShowBanner] = useState(true);
-  const [selectedLanguage, setSelectedLanguage] = useState("ENG");
-  const [showLangDropdown, setShowLangDropdown] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("isLoggedIn");
-      if (saved === "true") {
-        setIsLoggedIn(true);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("isLoggedIn", isLoggedIn ? "true" : "false");
-  }, [isLoggedIn]);
-
-  const [showUserDropdown, setShowUserDropdown] = useState(false);
-  const userDropdownRef = useRef<HTMLDivElement>(null);
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [favorites, setFavorites] = useState<number[]>([]);
-  const [currentLocationActive, setCurrentLocationActive] = useState(false);
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent | TouchEvent) {
-      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target as Node)) {
-        setShowUserDropdown(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("touchstart", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-    };
-  }, []);
-
-  const toggleFavorite = (id: number) => {
-    setFavorites((prev) =>
-      prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id]
-    );
-  };
-
-  // Mock Book Again services data
-  const bookAgainServices: Recommendation[] = [
-    {
-      id: 101,
-      title: "Soho Vintage Barbers | Sheikh Zayed Road",
-      rating: 4.9,
-      reviews: 120,
-      categories: ["Barber", "Salon"],
-      lastVisited: "Last visited 1 week ago",
-      startingPrice: 15,
-      image: "/img/service_demo.jpg",
-      travelsToYou: true,
-      travelLocations: ["Larnaca"],
-      hasDiamond: true,
-    },
-    {
-      id: 102,
-      title: "Zara Hair & Beauty | Limassol Marina",
-      rating: 4.8,
-      reviews: 85,
-      categories: ["Hair", "Salon"],
-      lastVisited: "Last visited 3 weeks ago",
-      startingPrice: 25,
-      image: "/img/service_demo.jpg",
-      noDeposit: true,
-    },
-    {
-      id: 103,
-      title: "Gold Gym Spa & Massage | Nicosia",
-      rating: 4.7,
-      reviews: 310,
-      categories: ["Massage", "Wellness"],
-      lastVisited: "Last visited 1 month ago",
-      startingPrice: 40,
-      image: "/img/service_demo.jpg",
-      hasDiamond: true,
-    },
-    {
-      id: 104,
-      title: "Elite Car Detailing | Paphos",
-      rating: 4.9,
-      reviews: 145,
-      categories: ["Automotive"],
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 50,
-      image: "/img/service_demo.jpg",
-      noDeposit: true,
-    },
-    {
-      id: 105,
-      title: "Precision Men's Grooming | Larnaca",
-      rating: 4.6,
-      reviews: 92,
-      categories: ["Barber"],
-      lastVisited: "Last visited 2 weeks ago",
-      startingPrice: 18,
-      image: "/img/service_demo.jpg",
-      travelsToYou: true,
-      travelLocations: ["Larnaca", "Nicosia"],
-    },
-    {
-      id: 106,
-      title: "Serenity Yoga Studio | Limassol",
-      rating: 5.0,
-      reviews: 74,
-      categories: ["Wellness"],
-      lastVisited: "Last visited 3 days ago",
-      startingPrice: 30,
-      image: "/img/service_demo.jpg",
-      noDeposit: true,
-    }
-  ];
-
-  // Mock Recommended for You services data
-  const recommendedForYouServices: Recommendation[] = [
-    {
-      id: 201,
-      title: "Gold Gym Spa & Massage | Nicosia",
-      rating: 4.7,
-      reviews: 310,
-      categories: ["Massage", "Wellness"],
-      lastVisited: "Recommended for you",
-      startingPrice: 40,
-      image: "/img/service_demo.jpg",
-      hasDiamond: true,
-    },
-    {
-      id: 202,
-      title: "Elite Car Detailing | Paphos",
-      rating: 4.9,
-      reviews: 145,
-      categories: ["Automotive"],
-      lastVisited: "98% match for you",
-      startingPrice: 50,
-      image: "/img/service_demo.jpg",
-      noDeposit: true,
-    }
-  ];
-
-  // Mock recommendations data
-  const recommendations: Recommendation[] = [
-    {
-      id: 1,
-      title: "Soho Vintage Barbers | Sheikh Zayed Road",
-      rating: 4.9,
-      reviews: 299,
-      categories: ["Barber", "Salon"],
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 12,
-      image: "/img/service_demo.jpg",
-      travelsToYou: true,
-      travelLocations: ["Larnaca", "Limasol", "+4 more"],
-      hasDiamond: true,
-    },
-    {
-      id: 2,
-      title: "Soho Vintage Barbers | Sheikh Zayed Road",
-      rating: 4.9,
-      reviews: 299,
-      categories: ["Barber", "Salon"],
-      location: "Sheikh Zayed Road, Dubai",
-      distance: "3km away",
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 12,
-      image: "/img/service_demo.jpg",
-      noDeposit: true,
-    },
-    {
-      id: 3,
-      title: "Soho Vintage Barbers | Sheikh Zayed Road",
-      rating: 4.9,
-      reviews: 299,
-      categories: ["Barber", "Salon"],
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 12,
-      image: "/img/service_demo.jpg",
-      travelsToYou: true,
-      travelLocations: ["Larnaca", "Limasol", "+4 more"],
-      noDeposit: true,
-    },
-    {
-      id: 4,
-      title: "Soho Vintage Barbers | Sheikh Zayed Road",
-      rating: 4.9,
-      reviews: 299,
-      categories: ["Barber", "Salon"],
-      location: "Sheikh Zayed Road, Dubai",
-      distance: "3km away",
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 12,
-      image: "/img/service_demo.jpg",
-      hasDiamond: true,
-      noDeposit: true,
-    },
-    {
-      id: 5,
-      title: "Soho Vintage Barbers | Sheikh Zayed Road",
-      rating: 4.9,
-      reviews: 299,
-      categories: ["Barber", "Salon"],
-      location: "Sheikh Zayed Road, Dubai",
-      distance: "3km away",
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 12,
-      image: "/img/service_demo.jpg",
-    },
-    {
-      id: 6,
-      title: "Soho Vintage Barbers | Sheikh Zayed Road",
-      rating: 4.9,
-      reviews: 299,
-      categories: ["Barber", "Salon"],
-      location: "Sheikh Zayed Road, Dubai",
-      distance: "3km away",
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 12,
-      image: "/img/service_demo.jpg",
-      hasDiamond: true,
-      noDeposit: true,
-    },
-  ];
-
-  // Mock services near you data
-  const servicesNearYou: Recommendation[] = [
-    {
-      id: 11,
-      title: "Zara Hair & Beauty Salon | Nicosia Center",
-      rating: 4.7,
-      reviews: 142,
-      categories: ["Salon", "Beauty"],
-      location: "Ledra Street, Nicosia",
-      distance: "0.8km away",
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 25,
-      image: "/img/service_demo.jpg",
-      hasDiamond: true,
-    },
-    {
-      id: 12,
-      title: "Zen Spa & Massage | Limassol Marina",
-      rating: 4.9,
-      reviews: 88,
-      categories: ["Spa", "Wellness"],
-      location: "Marina Road, Limassol",
-      distance: "1.5km away",
-      lastVisited: "Last visited 3 months ago",
-      startingPrice: 60,
-      image: "/img/service_demo.jpg",
-      noDeposit: true,
-    },
-    {
-      id: 13,
-      title: "Elite Barber Studio | Larnaca Bay",
-      rating: 4.8,
-      reviews: 210,
-      categories: ["Barber"],
-      travelsToYou: true,
-      travelLocations: ["Larnaca", "Dekhelia"],
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 18,
-      image: "/img/service_demo.jpg",
-    },
-    {
-      id: 14,
-      title: "Dynamic Fitness Coach | Paphos District",
-      rating: 5.0,
-      reviews: 45,
-      categories: ["Sports", "Fitness"],
-      travelsToYou: true,
-      travelLocations: ["Paphos", "Peyia"],
-      lastVisited: "Last visited 3 months ago",
-      startingPrice: 30,
-      image: "/img/service_demo.jpg",
-      noDeposit: true,
-    },
-    {
-      id: 15,
-      title: "Luxury Nails & Lashes | Limassol",
-      rating: 4.6,
-      reviews: 95,
-      categories: ["Beauty", "Salon"],
-      location: "Anexartisias, Limassol",
-      distance: "2.1km away",
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 20,
-      image: "/img/service_demo.jpg",
-    },
-    {
-      id: 16,
-      title: "Pet Care & Grooming | Nicosia",
-      rating: 4.9,
-      reviews: 120,
-      categories: ["Pets"],
-      location: "Strovolos, Nicosia",
-      distance: "3.5km away",
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 40,
-      image: "/img/service_demo.jpg",
-      hasDiamond: true,
-      noDeposit: true,
-    },
-  ];
-
-  // Mock popular businesses data (Service cards format)
-  const popularBusinesses: Recommendation[] = [
-    {
-      id: 31,
-      title: "Soho Vintage Barbers | Sheikh Zayed Road",
-      rating: 4.9,
-      reviews: 299,
-      categories: ["Barber", "Salon"],
-      location: "Limassol Marina",
-      distance: "1.1km away",
-      lastVisited: "Popular business",
-      startingPrice: 12,
-      image: "/img/service_demo.jpg",
-      hasDiamond: true,
-      noDeposit: true,
-    },
-    {
-      id: 32,
-      title: "Zara Hair & Beauty Salon | Nicosia Center",
-      rating: 4.7,
-      reviews: 142,
-      categories: ["Salon", "Beauty"],
-      location: "Ledra Street, Nicosia",
-      distance: "0.8km away",
-      lastVisited: "Popular business",
-      startingPrice: 25,
-      image: "/img/service_demo.jpg",
-      hasDiamond: true,
-    },
-    {
-      id: 33,
-      title: "Zen Spa & Massage | Limassol Marina",
-      rating: 4.9,
-      reviews: 88,
-      categories: ["Spa", "Wellness"],
-      location: "Marina Road, Limassol",
-      distance: "1.5km away",
-      lastVisited: "Popular business",
-      startingPrice: 60,
-      image: "/img/service_demo.jpg",
-      noDeposit: true,
-    },
-    {
-      id: 34,
-      title: "Luxury Nails & Lashes | Limassol",
-      rating: 4.6,
-      reviews: 95,
-      categories: ["Beauty", "Salon"],
-      location: "Anexartisias, Limassol",
-      distance: "2.1km away",
-      lastVisited: "Popular business",
-      startingPrice: 20,
-      image: "/img/service_demo.jpg",
-    },
-    {
-      id: 35,
-      title: "Absolute Tattoo Studio | Ayia Napa",
-      rating: 4.8,
-      reviews: 320,
-      categories: ["Beauty", "Experience"],
-      location: "Nissi Avenue, Ayia Napa",
-      distance: "0.7km away",
-      lastVisited: "Popular business",
-      startingPrice: 80,
-      image: "/img/service_demo.jpg",
-      hasDiamond: true,
-    },
-    {
-      id: 36,
-      title: "Precision Men's Grooming | Larnaca",
-      rating: 4.6,
-      reviews: 92,
-      categories: ["Barber"],
-      location: "Phinikoudes, Larnaca",
-      distance: "1.2km away",
-      lastVisited: "Popular business",
-      startingPrice: 18,
-      image: "/img/service_demo.jpg",
-      noDeposit: true,
-    }
-  ];
-
-  // Mock trending services data
-  const trendingServices: Recommendation[] = [
-    {
-      id: 21,
-      title: "The Classic Barber | Old Town Limassol",
-      rating: 4.9,
-      reviews: 512,
-      categories: ["Barber"],
-      location: "Castle Area, Limassol",
-      distance: "0.5km away",
-      lastVisited: "Last visited 3 months ago",
-      startingPrice: 15,
-      image: "/img/service_demo.jpg",
-      noDeposit: true,
-    },
-    {
-      id: 22,
-      title: "Serenity Yoga & Pilates | Nicosia",
-      rating: 4.9,
-      reviews: 130,
-      categories: ["Wellness", "Fitness"],
-      location: "Athalassa Ave, Nicosia",
-      distance: "1.9km away",
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 12,
-      image: "/img/service_demo.jpg",
-      hasDiamond: true,
-    },
-    {
-      id: 23,
-      title: "Absolute Tattoo Studio | Ayia Napa",
-      rating: 4.8,
-      reviews: 320,
-      categories: ["Beauty", "Experience"],
-      location: "Nissi Avenue, Ayia Napa",
-      distance: "0.7km away",
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 80,
-      image: "/img/service_demo.jpg",
-    },
-    {
-      id: 24,
-      title: "Royal Thai Massage | Larnaca Center",
-      rating: 4.7,
-      reviews: 198,
-      categories: ["Spa", "Wellness"],
-      location: "Finikoudes, Larnaca",
-      distance: "0.2km away",
-      lastVisited: "Last visited 3 months ago",
-      startingPrice: 45,
-      image: "/img/service_demo.jpg",
-      travelsToYou: true,
-      travelLocations: ["Larnaca"],
-      noDeposit: true,
-    },
-    {
-      id: 25,
-      title: "Modern Cuts & Fades | Paphos",
-      rating: 4.6,
-      reviews: 84,
-      categories: ["Barber"],
-      location: "Tombs of Kings, Paphos",
-      distance: "2.4km away",
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 10,
-      image: "/img/service_demo.jpg",
-    },
-    {
-      id: 26,
-      title: "Ultimate Car Detailers | Limassol",
-      rating: 4.9,
-      reviews: 175,
-      categories: ["Automotive"],
-      travelsToYou: true,
-      travelLocations: ["Limassol", "Larnaca"],
-      lastVisited: "Last visited 2 months ago",
-      startingPrice: 50,
-      image: "/img/service_demo.jpg",
-      hasDiamond: true,
-      noDeposit: true,
-    },
-  ];
-
   // Mock trusted businesses data
   const trustedBusinesses: TrustedBusiness[] = [
     { id: 1, name: "PhysioPlus", location: "Larnaca", role: "Founding Partners", image: "/Icons/trustedOne.svg" },
@@ -665,50 +48,15 @@ export default function LandingPage() {
 
       {/* Design Background Blobs */}
       <div className="absolute top-0 left-0 -z-10 w-full pointer-events-none opacity-40">
-        <Image src="/designImg/topEllipes.svg" alt="" className="absolute top-0 left-0 w-[500px] h-[500px]" width={24} height={24} />
-        <Image src="/designImg/middleEllipes.svg" alt="" className="absolute top-[20%] right-0 w-[600px] h-[600px]" width={24} height={24} />
+        <Image src="/designImg/topEllipes.svg" alt="" className="absolute top-0 left-0 w-[500px] h-[500px]" width={500} height={500} priority />
+        <Image src="/designImg/middleEllipes.svg" alt="" className="absolute top-[20%] right-0 w-[600px] h-[600px]" width={600} height={600} />
       </div>
 
       {/* 1. Top Banner */}
-      {showBanner && (
-        <div className="w-full bg-[#96C3CD] text-[#111111] px-3 sm:px-[16px] py-2.5 sm:py-[16px] flex items-center justify-between transition-all duration-300 relative z-50 text-[10px] sm:text-xs md:text-sm font-medium">
-          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-            <div className="w-[17px] h-[20px] flex items-center justify-center shrink-0">
-              <Image src="/img/smallBLogo.svg" alt="B" className="w-full h-full object-contain" fill />
-            </div>
-            <span className="truncate">Reach new customers across Cyprus. Zero monthly fees. No risk</span>
-          </div>
+      <TopBannerWrapper />
 
-          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-            <button
-              onClick={() => router.push("/list-your-business")}
-              className="bg-white hover:bg-neutral-50 text-[#1C1B1C] px-4 py-1.5 rounded-full font-semibold shadow-sm transition-all active:scale-95 cursor-pointer flex items-center gap-1.5 whitespace-nowrap text-[10px] sm:text-xs md:text-sm"
-            >
-              <span>List your Business</span>
-              <svg className="w-3.5 h-3.5 text-[#111111] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </button>
-            <button
-              onClick={() => setShowBanner(false)}
-              className="text-[#1C1B1C] hover:opacity-75 transition-opacity cursor-pointer p-1"
-              aria-label="Close Banner"
-            >
-              {/* Close Cross Icon */}
-              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      )}
-
-      <Navbar
-        isLoggedIn={isLoggedIn}
-        setIsLoggedIn={setIsLoggedIn}
-        selectedLanguage={selectedLanguage}
-        setSelectedLanguage={setSelectedLanguage}
-      />
+      {/* 2. Navbar */}
+      <NavbarWrapper />
 
       {/* 3. Hero Section */}
       <section className="w-full px-4 text-center mt-12 md:mt-16 flex flex-col items-center">
@@ -723,281 +71,11 @@ export default function LandingPage() {
         </p>
 
         {/* 4. Hero Search Bar */}
-        <SearchBar onSearch={(sq, lq, st) => console.log("Searching for", sq, "in", lq, "at", st)} />
+        <SearchBar />
       </section>
 
-      {/* 5. Category Section */}
-      <section className="w-full max-w-[1440px] mx-auto px-4 md:px-[64px] mt-16">
-        <div className="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-8 gap-4 justify-items-center pb-4 w-full">
-
-          {/* ALL Category Card */}
-          <button
-            onClick={() => setSelectedCategory("all")}
-            className={`flex w-[150px] h-[108px] flex-col items-center justify-center gap-[24px] rounded-xl transition-all duration-200 cursor-pointer shrink-0 ${selectedCategory === "all"
-              ? "bg-[#111111] text-[#FCFAF9] shadow-md scale-105"
-              : "bg-white text-[#111111] border border-neutral-100 hover:shadow-sm"
-              }`}
-          >
-            <HugeiconsIcon icon={DashboardSquare02Icon}   size={24}
-  strokeWidth={1.5}
-  />
-            <span className="text-xs font-semibold tracking-wider uppercase">All</span>
-          </button>
-
-          {/* BEAUTY & WELLNESS */}
-          <button
-            onClick={() => setSelectedCategory("wellness")}
-            className={`flex w-[150px] h-[108px] flex-col items-center justify-center gap-[24px] rounded-xl transition-all duration-200 cursor-pointer shrink-0 ${selectedCategory === "wellness"
-              ? "bg-[#111111] text-[#817469] shadow-md scale-105"
-              : "bg-white text-[#817469] border border-neutral-100 hover:shadow-sm"
-              }`}
-          >
-            <div className="p-1 rounded bg-[#EDE3DE]">
-              <HugeiconsIcon icon={WellnessIcon}   size={24}
-  strokeWidth={1.5}
-  color="#111111"/>
-            </div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-center">Beauty & Wellness</span>
-          </button>
-
-          {/* HEALTH & FITNESS */}
-          <button
-            onClick={() => setSelectedCategory("health")}
-            className={`flex w-[150px] h-[108px] flex-col items-center justify-center gap-[24px] rounded-xl transition-all duration-200 cursor-pointer shrink-0 ${selectedCategory === "health"
-              ? "bg-[#111111] text-[#817469] shadow-md scale-105"
-              : "bg-white text-[#817469] border border-neutral-100 hover:shadow-sm"
-              }`}
-          >
-            <div className="p-1 rounded bg-[#EDE3DE]">
-              <HugeiconsIcon icon={HealtcareIcon}   size={24}
-  strokeWidth={1.5}
-  color="#111111"/>
-            </div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-center">Health Care</span>
-          </button>
-
-          {/* SPORTS & ACTIVITIES */}
-          <button
-            onClick={() => setSelectedCategory("sports")}
-            className={`flex w-[150px] h-[108px] flex-col items-center justify-center gap-[24px] rounded-xl transition-all duration-200 cursor-pointer shrink-0 ${selectedCategory === "sports"
-              ? "bg-[#111111] text-[#817469] shadow-md scale-105"
-              : "bg-white text-[#817469] border border-neutral-100 hover:shadow-sm"
-              }`}
-          >
-            <div className="p-1 rounded bg-[#EDE3DE]">
-              <HugeiconsIcon icon={FootballIcon}   size={24}
-  strokeWidth={1.5}
-  color="#111111"/>
-            </div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-center">Sports & Activities</span>
-          </button>
-
-          {/* EXPERIENCE & TOURS */}
-          <button
-            onClick={() => setSelectedCategory("experience")}
-            className={`flex w-[150px] h-[108px] flex-col items-center justify-center gap-[24px] rounded-xl transition-all duration-200 cursor-pointer shrink-0 ${selectedCategory === "experience"
-              ? "bg-[#111111] text-[#817469] shadow-md scale-105"
-              : "bg-white text-[#817469] border border-neutral-100 hover:shadow-sm"
-              }`}
-          >
-            <div className="p-1 rounded bg-[#EDE3DE]">
-              <HugeiconsIcon icon={SailboatOffshoreIcon}   size={24}
-  strokeWidth={1.5}
-  color="#111111"/>
-            </div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-center">Experience & Tours</span>
-          </button>
-
-          {/* ENTERTAINMENT & EVENTS */}
-          <button
-            onClick={() => setSelectedCategory("entertainment")}
-            className={`flex w-[150px] h-[108px] flex-col items-center justify-center gap-[24px] rounded-xl transition-all duration-200 cursor-pointer shrink-0 ${selectedCategory === "entertainment"
-              ? "bg-[#111111] text-[#817469] shadow-md scale-105"
-              : "bg-white text-[#817469] border border-neutral-100 hover:shadow-sm"
-              }`}
-          >
-            <div className="p-1 rounded bg-[#EDE3DE]">
-              <HugeiconsIcon icon={PartyIcon}   size={24}
-  strokeWidth={1.5}
-  color="#111111"/>
-            </div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-center">Entertainment & Events</span>
-          </button>
-
-          {/* PETS & HOME (FemiIcon / famicon) */}
-          <button
-            onClick={() => setSelectedCategory("pets")}
-            className={`flex w-[150px] h-[108px] flex-col items-center justify-center gap-[24px] rounded-xl transition-all duration-200 cursor-pointer shrink-0 ${selectedCategory === "pets"
-              ? "bg-[#111111] text-[#817469] shadow-md scale-105"
-              : "bg-white text-[#817469] border border-neutral-100 hover:shadow-sm"
-              }`}
-          >
-            <div className="p-1 rounded bg-[#EDE3DE] flex items-center justify-center">
-              <Image src="/Icons/famicon.svg" alt="FemiIcon" className="w-6 h-6 object-contain" width={24} height={24} />
-            </div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-center">Pets & Home</span>
-          </button>
-
-          {/* AUTOMOTIVE */}
-          <button
-            onClick={() => setSelectedCategory("automotive")}
-            className={`flex w-[150px] h-[108px] flex-col items-center justify-center gap-[24px] rounded-xl transition-all duration-200 cursor-pointer shrink-0 ${selectedCategory === "automotive"
-              ? "bg-[#111111] text-[#817469] shadow-md scale-105"
-              : "bg-white text-[#817469] border border-neutral-100 hover:shadow-sm"
-              }`}
-          >
-            <div className="p-1 rounded bg-[#EDE3DE]">
-              <HugeiconsIcon icon={Car04Icon}   size={24}
-  strokeWidth={1.5}
-  color="#111111"/>
-            </div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-center">Automotive</span>
-          </button>
-
-        </div>
-      </section>
-
-      {/* Book Again Section (Logged In Only) */}
-      {isLoggedIn && (
-        <BookAgainSection
-          services={bookAgainServices}
-          favorites={favorites}
-          toggleFavorite={toggleFavorite}
-        />
-      )}
-
-
-
-      {/* 6. Recommended Section */}
-      <section className="w-full px-4 md:px-8 xl:px-[68px] mt-16 relative z-10">
-
-        {/* Section Header */}
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl md:text-[28px] font-medium tracking-tight text-[#1C1B1C]">
-            Recommended
-          </h2>
-          <a href="/explore" className="text-sm md:text-base font-medium text-[#1C1B1C] hover:underline transition-all">
-            See all
-          </a>
-        </div>
-
-        {/* Card Grid / Carousel */}
-        {recommendations.length > 5 ? (
-          <Carousel>
-            {recommendations.map((rec) => (
-              <div key={rec.id} className="w-[calc(50%-7.5px)] sm:w-[360px] md:w-[406px] shrink-0 snap-start">
-                <ServiceCard
-                  rec={rec}
-                  isFavorite={favorites.includes(rec.id)}
-                  onToggleFavorite={toggleFavorite}
-                  onBookNow={(id) => console.log("Booking item", id)}
-                />
-              </div>
-            ))}
-          </Carousel>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-            {recommendations.map((rec) => (
-              <ServiceCard
-                key={rec.id}
-                rec={rec}
-                isFavorite={favorites.includes(rec.id)}
-                onToggleFavorite={toggleFavorite}
-                onBookNow={(id) => console.log("Booking item", id)}
-              />
-            ))}
-          </div>
-        )}
-
-      </section>
-
-      {/* 7. Services Near You Section (Logged In Only) */}
-      {isLoggedIn && (
-        <section className="w-full px-4 md:px-8 xl:px-[68px] mt-[56px]">
-
-          {/* Section Header */}
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl md:text-[28px] font-medium tracking-tight text-[#1C1B1C]">
-              Services near you
-            </h2>
-            <a href="/explore" className="text-sm md:text-base font-medium text-[#1C1B1C] hover:underline transition-all">
-              See all
-            </a>
-          </div>
-
-          {/* Card Grid / Carousel */}
-          {servicesNearYou.length > 5 ? (
-            <Carousel>
-              {servicesNearYou.map((rec) => (
-                <div key={rec.id} className="w-[calc(50%-7.5px)] sm:w-[360px] md:w-[406px] shrink-0 snap-start">
-                  <ServiceCard
-                    rec={rec}
-                    isFavorite={favorites.includes(rec.id)}
-                    onToggleFavorite={toggleFavorite}
-                    onBookNow={(id) => console.log("Booking item", id)}
-                  />
-                </div>
-              ))}
-            </Carousel>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-              {servicesNearYou.map((rec) => (
-                <ServiceCard
-                  key={rec.id}
-                  rec={rec}
-                  isFavorite={favorites.includes(rec.id)}
-                  onToggleFavorite={toggleFavorite}
-                  onBookNow={(id) => console.log("Booking item", id)}
-                />
-              ))}
-            </div>
-          )}
-
-        </section>
-      )}
-
-      {/* 8. Trending Services Section */}
-      <section className="w-full px-4 md:px-8 xl:px-[68px] mt-[56px]">
-
-        {/* Section Header */}
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl md:text-[28px] font-medium tracking-tight text-[#1C1B1C]">
-            Trending services
-          </h2>
-          <a href="/explore" className="text-sm md:text-base font-medium text-[#1C1B1C] hover:underline transition-all">
-            See all
-          </a>
-        </div>
-
-        {/* Card Grid / Carousel */}
-        {trendingServices.length > 5 ? (
-          <Carousel>
-            {trendingServices.map((rec) => (
-              <div key={rec.id} className="w-[calc(50%-7.5px)] sm:w-[360px] md:w-[406px] shrink-0 snap-start">
-                <ServiceCard
-                  rec={rec}
-                  isFavorite={favorites.includes(rec.id)}
-                  onToggleFavorite={toggleFavorite}
-                  onBookNow={(id) => console.log("Booking item", id)}
-                />
-              </div>
-            ))}
-          </Carousel>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-            {trendingServices.map((rec) => (
-              <ServiceCard
-                key={rec.id}
-                rec={rec}
-                isFavorite={favorites.includes(rec.id)}
-                onToggleFavorite={toggleFavorite}
-                onBookNow={(id) => console.log("Booking item", id)}
-              />
-            ))}
-          </div>
-        )}
-
-      </section>
+      {/* 5. Interactive Categories and Services Sections */}
+      <CategoryServicesSection />
 
       {/* 9. Trusted Businesses Section */}
       <section className="w-full bg-[#FCFCFD] py-12 md:py-[72px] border-y border-neutral-100 mt-[24px]">
@@ -1016,14 +94,14 @@ export default function LandingPage() {
           <div className="w-full">
             {trustedBusinesses.length > 5 ? (
               <Carousel gapClass="gap-[40px] md:gap-[80px]">
-                {trustedBusinesses.map((biz) => (
-                  <TrustedBusinessCard key={biz.id} business={biz} />
+                {trustedBusinesses.map((biz, idx) => (
+                  <TrustedBusinessCard key={`${biz.id}-${idx}`} business={biz} />
                 ))}
               </Carousel>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-items-center">
-                {trustedBusinesses.map((biz) => (
-                  <TrustedBusinessCard key={biz.id} business={biz} />
+                {trustedBusinesses.map((biz, idx) => (
+                  <TrustedBusinessCard key={`${biz.id}-${idx}`} business={biz} />
                 ))}
               </div>
             )}
@@ -1032,7 +110,7 @@ export default function LandingPage() {
       </section>
 
       {/* 10. Book in 3 Simple Steps Section */}
-      <section ref={stepsContainerRef} id="how-it-works" className="w-full px-4 md:px-8 xl:px-[68px] mt-[72px] scroll-mt-36">
+      <section id="how-it-works" className="w-full px-4 md:px-8 xl:px-[68px] mt-[72px] scroll-mt-36">
         <div className="w-full flex flex-col items-center gap-10 md:gap-[40px]">
           {/* Header Container */}
           <div className="flex flex-col items-center gap-4 text-center max-w-[730px]">
@@ -1072,10 +150,8 @@ export default function LandingPage() {
       <WhyChooseUs />
 
       {/* 12. Add Bookly to Your Home Screen Section */}
-      <section className="w-full mt-[219px] mb-24  flex justify-center">
+      <section className="w-full mt-[219px] mb-24 flex justify-center">
         <div className="w-full h-[320px] md:h-[400px] lg:h-[449px] xl:h-[484px] bg-[#2E9DA7] relative overflow-visible z-10">
-
-
           {/* Left Side: Content */}
           <div className="absolute left-[37px] top-[38px] xl:left-[141px] text-white z-10 flex flex-col items-start gap-2.5 sm:gap-4 md:gap-5 max-w-[calc(100%-140px)] lg:max-w-[636px] add-home-screen-content-wrapper">
             <h2 className="add-home-screen-title sm:text-[32px] lg:text-[54px] lg:leading-[64px] font-poppins font-medium text-[#FCFAF9] tracking-tight">
@@ -1088,100 +164,45 @@ export default function LandingPage() {
                 Book any local services instantly
               </span>
               <div className="w-6 h-6 border-[1.5px] border-[#FCFAF9] rounded-full flex items-center justify-center shrink-0 add-home-screen-check-icon">
-                <svg className="w-3.5 h-3.5 text-[#FCFAF9]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
+                <svg className="w-3.5 h-3.5 text-[#FCFAF9] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
             </div>
-          </div>
 
-          {/* Install Button Container */}
-          <div className="absolute left-[150px] xl:left-[378px] top-[250px] xl:top-[347px] z-20 add-home-screen-btn-container">
-            <AddToHomeScreenButton
-              className="z-10 scale-75 xl:scale-100 origin-left add-home-screen-btn"
-              showTextOnMobile={true}
-              size="large"
-            />
-          </div>
+            {/* Paragraph Description */}
+            <p className="add-home-screen-desc font-manrope font-normal text-xs sm:text-sm lg:text-[15px] lg:leading-[22px] text-[#FCFAF9] opacity-90 max-w-[509px]">
+              No app store downloads required. Install Bookly directly from your browser to get instant access, offline bookings, and local updates right on your home screen.
+            </p>
 
-          {/* Curved Arrow Image */}
-          <div className="absolute left-[120px] xl:left-[256px] top-[215px] xl:top-[245px] w-[36px] xl:w-[114px] h-[40px] xl:h-[151px] pointer-events-none opacity-95 z-20 add-home-screen-arrow-icon">
-            <Image src="/Icons/direction.png" alt="Direction Arrow" className="w-full h-full object-contain" draggable="false" fill />
-          </div>
-
-          {/* Right Side: Phone Image mockup */}
-          <div className="absolute right-[16px] md:right-[20px] lg:right-[150px] z-0 sm:z-20 pointer-events-none mockup-container-fixed">
-            <div className="relative w-full h-full flex items-center justify-center">
-              {/* Ellipse 133 Glow Light behind phone */}
-              <div
-                className="absolute pointer-events-none -z-10 opacity-90"
-                style={{
-                  width: "244.85px",
-                  height: "478.55px",
-                  left: "50%",
-                  top: "50%",
-                  transform: "translate(-50%, -50%) rotate(6.83deg)",
-                  background: "rgba(255, 255, 255, 0.8)",
-                  filter: "blur(100px)",
-                }}
-              />
-
-              <Image src="/img/mobile.png" alt="Bookly App Mockup" style={{
-                  transform: "rotate(6.83deg)"
-                }} className="object-fill z-10 max-w-none mockup-image-fixed" draggable="false" width={24} height={24} />
+            {/* Button */}
+            <div className="mt-2 lg:mt-4">
+              <AddToHomeScreenButton />
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* 13. Bookly for Business Section */}
-      <section className="w-full mt-[98px] mb-24 px-4 md:px-8 xl:px-0">
-        <div className=" flex flex-col items-center gap-[40px] text-center">
-
-          {/* Header Block (Title and Subtitle) */}
-          <div className="flex flex-col items-center gap-[20px] max-w-[607px]">
-            <h2 className="text-3xl md:text-[36px] font-medium leading-tight md:leading-[48px] text-[#16123E] tracking-tight font-poppins">
-              Bookly for Business
-            </h2>
-            <p className="text-lg md:text-[24px] font-normal leading-normal md:leading-[32px] text-[#757575] font-poppins">
-              Stop losing revenue to no-shows and missed calls.
-            </p>
+          {/* Right Side: Mockups */}
+          <div className="absolute right-0 bottom-0 top-0 overflow-visible w-[50%] pointer-events-none hidden md:block">
+            <div className="relative w-full h-full">
+              <BusinessMockup />
+              <div className="absolute bottom-0 right-[40px] xl:right-[150px] w-[220px] h-[360px] xl:w-[277px] xl:h-[455px] z-10 overflow-visible add-home-screen-phone-wrapper">
+                <Image
+                  src="/img/mobile.png"
+                  alt="Bookly App Mockup"
+                  className="object-fill z-10 max-w-none mockup-image-fixed"
+                  draggable="false"
+                  fill
+                />
+              </div>
+            </div>
           </div>
-
-          {/* Body Description */}
-          <p className="w-full text-lg md:text-[24px] font-normal leading-normal md:leading-[36px] text-black font-sans">
-            Bookly fills your calendar, protects your income, and brings you new customers — automatically
-          </p>
-
-          {/* CTA Button */}
-          <button
-            onClick={() => router.push("/list-your-business")}
-            className="flex flex-row items-center justify-center py-3 px-6 gap-[8px] w-full sm:w-[290px] h-[48px] bg-[#141414] hover:bg-black text-white rounded-full transition-all active:scale-95 cursor-pointer font-inter font-semibold text-[15.7px] leading-[24px]"
-          >
-            <span>List your Business - It’s free</span>
-            {/* White arrow icon */}
-            <svg
-              className="w-[18px] h-[18px] text-white shrink-0"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
-
         </div>
       </section>
 
-
-
-      <BusinessMockup />
+      {/* 13. FAQ Section */}
       <FaqSection />
+
+      {/* 14. Footer */}
       <Footer />
     </div>
   );
