@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 import React, { useState } from "react";
@@ -150,7 +151,7 @@ export default function DashboardOverview() {
           <span className="text-[11px] font-normal text-[#888780] font-poppins">Avg Rating</span>
           <div className="flex items-center gap-1.5 mt-0.5">
             <span className="text-3xl font-semibold text-[#1A1A1A] leading-none">4.9</span>
-            <img src="/businessDashboard/Metric 5 Star.svg" alt="5 Stars" className="w-5 h-5 object-contain" />
+            <Image src="/businessDashboard/Metric 5 Star.svg" alt="5 Stars" className="w-5 h-5 object-contain" width={20} height={20} />
           </div>
           <div className="flex items-center text-[11px] text-[#757575] hover:text-[#111111] cursor-pointer mt-0.5 font-poppins whitespace-nowrap select-none">
             <span>38 verified reviews</span>
@@ -271,7 +272,7 @@ export default function DashboardOverview() {
           {/* Recent Activity Card */}
           <div className="bg-white border border-[#E8E8E6] rounded-xl p-5 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
-              <img src="/businessDashboard/Activity.svg" alt="Activity Trend" className="w-8 h-4 object-contain opacity-95" />
+              <Image src="/businessDashboard/Activity.svg" alt="Activity Trend" className="w-8 h-4 object-contain opacity-95" width={32} height={16} />
               <h3 className="text-sm font-semibold text-[#0F1E35] font-poppins">Recent activity</h3>
             </div>
 

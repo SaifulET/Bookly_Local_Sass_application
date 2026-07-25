@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { 
@@ -493,7 +494,7 @@ export default function NewBlogPostPage({ editingPost, onDiscard, onSave }: NewB
             <div className="flex items-center gap-2 w-full flex-wrap">
               {images.map((img) => (
                 <div key={img.id} className="relative w-[88px] h-[66px] rounded-lg overflow-hidden shrink-0 border border-gray-150">
-                  <img src={img.url} className="w-full h-full object-cover" alt="Uploaded Thumbnail" />
+                  <Image src={img.url} className="w-full h-full object-cover" alt="Uploaded Thumbnail" fill />
 
                   {img.type === "cover" && (
                     <div className="absolute top-1 left-1 bg-black/60 text-white font-normal text-[9px] px-1.5 py-0.5 rounded">

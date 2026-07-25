@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import Navbar from "@/components/Navbar";
 
@@ -29,7 +30,7 @@ export default function ListYourBusinessNavbar({
         <div className="w-full bg-[#96C3CD] text-[#111111] px-4 md:px-[64px] py-2.5 sm:py-[16px] flex items-center justify-between transition-all duration-300 relative z-50 text-[10px] sm:text-xs md:text-sm font-medium">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <div className="w-[17px] h-[20px] flex items-center justify-center shrink-0">
-              <img src="/img/smallBLogo.svg" alt="B" className="w-full h-full object-contain" />
+              <Image src="/img/smallBLogo.svg" alt="B" className="w-full h-full object-contain" fill />
             </div>
             <span className="truncate">Reach new customers across Cyprus. Zero monthly fees. No risk</span>
           </div>

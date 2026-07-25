@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { MoreVerticalIcon, ViewIcon, Delete02Icon } from "@hugeicons/core-free-icons";
@@ -46,7 +47,7 @@ export default function PhotosSection({ photos, setPhotos, onSeeAll }: PhotosSec
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full relative">
           {photos.map((src, idx) => (
             <div key={idx} className="relative aspect-[4/3] rounded-xl overflow-visible border border-neutral-200 bg-neutral-100 group">
-              <img src={src} className="w-full h-full object-cover rounded-xl" alt={`Business photo ${idx + 1}`} />
+              <Image src={src} className="w-full h-full object-cover rounded-xl" alt={`Business photo ${idx + 1}`} fill />
               
               {/* Circular 3-dot overlay button */}
               <button
@@ -115,7 +116,7 @@ export default function PhotosSection({ photos, setPhotos, onSeeAll }: PhotosSec
           onClick={() => setPreviewImage(null)}
         >
           <div className="relative max-w-3xl max-h-[80vh] bg-white p-2 rounded-xl" onClick={(e) => e.stopPropagation()}>
-            <img src={previewImage} className="max-w-full max-h-[75vh] rounded-lg object-contain" />
+            <Image src={previewImage} alt="Preview" className="max-w-full max-h-[75vh] rounded-lg object-contain" width={24} height={24} />
             <button 
               type="button"
               onClick={() => setPreviewImage(null)}

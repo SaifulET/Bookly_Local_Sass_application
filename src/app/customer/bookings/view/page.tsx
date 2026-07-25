@@ -85,7 +85,7 @@ function BookingViewContent() {
                     <span>sdf@gmail.com</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <img src="/Icons/phone.svg" className="w-4 h-4 object-contain" alt="phone" />
+                    <Image src="/Icons/phone.svg" className="w-4 h-4 object-contain" alt="phone" width={16} height={16} />
                     <span>+123 566 889</span>
                   </div>
                 </div>
@@ -114,12 +114,7 @@ function BookingViewContent() {
                   <span className="font-semibold text-sm text-black">5.0</span>
                   <div className="flex items-center">
                     {Array.from({ length: 5 }).map((_, idx) => (
-                      <img
-                        key={idx}
-                        src="/Icons/rattingfull.svg"
-                        className="w-4 h-4 object-contain"
-                        alt="star"
-                      />
+                      <Image key={idx} src="/Icons/rattingfull.svg" className="w-4 h-4 object-contain" alt="star" width={16} height={16} />
                     ))}
                   </div>
                   <span className="text-sm text-black font-medium">(589)</span>

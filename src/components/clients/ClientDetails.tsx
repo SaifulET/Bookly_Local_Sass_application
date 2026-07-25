@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 
@@ -116,11 +117,7 @@ export default function ClientDetails({
             {/* Profile Avatar section */}
             <div className="flex items-center gap-6">
               <div className="relative w-[120px] h-[120px] rounded-full border border-neutral-200 overflow-hidden shadow-sm shrink-0 bg-neutral-100 flex items-center justify-center">
-                <img
-                  src={clientAvatar || "/businessDashboard/downLogo.png"}
-                  alt="Client Avatar"
-                  className="w-full h-full object-cover"
-                />
+                <Image src={clientAvatar || "/businessDashboard/downLogo.png"} alt="Client Avatar" className="w-full h-full object-cover" fill />
               </div>
             </div>
 
@@ -173,7 +170,7 @@ export default function ClientDetails({
               <div className="md:col-span-2 flex flex-col gap-2">
                 <label className="font-poppins text-xs font-semibold text-[#111111] uppercase tracking-[0.09em]">Contact</label>
                 <div className="flex items-center gap-3 border border-[#ECEBEF] rounded-xl px-4 bg-[#FFFFFF] h-[60px] w-full select-none">
-                  <img src="/Icons/phone.svg" alt="Phone" className="w-5 h-5 object-contain" />
+                  <Image src="/Icons/phone.svg" alt="Phone" className="w-5 h-5 object-contain" width={20} height={20} />
                   <span className="font-poppins text-sm font-semibold text-[#111111]">
                     {clientPhone || "+1 265 665 2266"}
                   </span>

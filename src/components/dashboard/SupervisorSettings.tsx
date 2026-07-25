@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import React, { useState, useEffect, useRef } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -205,7 +206,7 @@ export default function SupervisorSettings() {
                   </span>
                   <div className="flex items-center gap-4 mt-2">
                     <div className="relative w-20 h-20 rounded-full border border-neutral-200 overflow-hidden bg-neutral-100">
-                      <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
+                      <Image src={profileImage} alt="Profile" className="w-full h-full object-cover" fill />
                       <button 
                         type="button"
                         onClick={() => fileInputRef.current?.click()}

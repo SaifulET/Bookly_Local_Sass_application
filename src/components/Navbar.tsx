@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -118,9 +119,9 @@ export default function Navbar({
         <div className="flex items-center">
           <div className="cursor-pointer shrink-0" onClick={() => { sessionStorage.removeItem("scrollToHowItWorks"); router.push("/"); }}>
             {isLoggedIn ? (
-              <img src="/image/smallBlacklogo.svg" alt="Bookly" className="h-8 md:h-[44px] w-9 object-contain" />
+              <Image src="/image/smallBlacklogo.svg" alt="Bookly" className="h-8 md:h-[44px] w-9 object-contain" width={36} height={32} />
             ) : (
-              <img src="/img/logoo.svg" alt="Bookly" className="h-8 md:h-[44px] w-[120px] object-contain" />
+              <Image src="/img/logoo.svg" alt="Bookly" className="h-8 md:h-[44px] w-[120px] object-contain" width={32} height={32} />
             )}
           </div>
         </div>
@@ -210,11 +211,7 @@ export default function Navbar({
                   onClick={() => setShowUserDropdown(!showUserDropdown)}
                   className="flex items-center gap-2 p-1 rounded-full hover:bg-neutral-100 transition-colors cursor-pointer"
                 >
-                  <img
-                    src={avatar}
-                    alt="User Avatar"
-                    className="w-9 h-9 rounded-full object-cover border border-[#ACAAB4]/40"
-                  />
+                  <Image src={avatar} alt="User Avatar" className="w-9 h-9 rounded-full object-cover border border-[#ACAAB4]/40" width={36} height={36} />
                   <svg className="w-3.5 h-3.5 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
@@ -417,11 +414,7 @@ export default function Navbar({
               onClick={() => setShowUserDropdown(!showUserDropdown)}
               className="flex items-center gap-1.5 p-1 rounded-full hover:bg-neutral-100 transition-colors cursor-pointer mr-1 relative z-40"
             >
-              <img
-                src={avatar}
-                alt="User Avatar"
-                className="w-8 h-8 rounded-full object-cover border border-[#ACAAB4]/40"
-              />
+              <Image src={avatar} alt="User Avatar" className="w-8 h-8 rounded-full object-cover border border-[#ACAAB4]/40" width={32} height={32} />
               <svg className="w-3.5 h-3.5 text-[#111111]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
@@ -538,11 +531,7 @@ export default function Navbar({
                     }, 100);
                   }}
                 >
-                  <img
-                    src={avatar}
-                    alt="User Avatar"
-                    className="w-10 h-10 rounded-full object-cover border border-[#ACAAB4]/40"
-                  />
+                  <Image src={avatar} alt="User Avatar" className="w-10 h-10 rounded-full object-cover border border-[#ACAAB4]/40" width={40} height={40} />
                   <div>
                     <div className="font-semibold text-sm text-[#1C1B1C]">Logged In User (Profile)</div>
                     <div className="text-xs text-[#757575]">{selectedLanguage}</div>

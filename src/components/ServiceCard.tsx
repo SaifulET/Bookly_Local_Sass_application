@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { useRouter } from "next/navigation";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -49,17 +50,12 @@ export default function ServiceCard({
     >
       {/* Card Image Area */}
       <div className="relative w-full h-[140px] xs:h-[180px] sm:h-[220px] md:h-[241px] p-[4px] bg-transparent overflow-hidden shrink-0">
-        <img
-          src={rec.image}
-          alt={rec.title}
-          className="w-full h-[132px] xs:h-[172px] sm:h-[212px] md:h-[233px] rounded-[8px] object-cover group-hover:scale-105 transition-transform duration-300"
-          draggable="false"
-        />
+        <Image src={rec.image} alt={rec.title} className="w-full h-[132px] xs:h-[172px] sm:h-[212px] md:h-[233px] rounded-[8px] object-cover group-hover:scale-105 transition-transform duration-300" draggable="false" width={24} height={24} />
 
         {/* Premium Diamond Badge Overlay (Top Left) */}
         {hasDiamond && (
           <div className="absolute top-[8px] sm:top-[12px] left-[8px] sm:left-[12px] w-6 h-6 sm:w-9 sm:h-9 rounded-full bg-[#2E9DA7] flex items-center justify-center shadow-sm z-10">
-            <img src="/Icons/diamond.svg" alt="Premium" className="w-3 h-3 sm:w-4 sm:h-4 object-contain" draggable="false" />
+            <Image src="/Icons/diamond.svg" alt="Premium" className="w-3 h-3 sm:w-4 sm:h-4 object-contain" draggable="false" width={12} height={12} />
           </div>
         )}
 
@@ -71,12 +67,7 @@ export default function ServiceCard({
             onToggleFavorite(rec.id);
           }}
         >
-          <img
-            src={isFavorite ? "/Icons/whiteHeart.svg" : "/Icons/whiteHeartwithoutfill.svg"}
-            alt="Heart"
-            className="w-4 h-4 sm:w-[24px] sm:h-[24px]"
-            draggable="false"
-          />
+          <Image src={isFavorite ? "/Icons/whiteHeart.svg" : "/Icons/whiteHeartwithoutfill.svg"} alt="Heart" className="w-4 h-4 sm:w-[24px] sm:h-[24px]" draggable="false" width={16} height={16} />
         </button>
 
         {/* No Deposit Needed Badge Overlay (Bottom Left) */}
@@ -93,7 +84,7 @@ export default function ServiceCard({
         {/* Travels to You Badge Overlay (Bottom Right) */}
         {travelsToYou && (
           <div className="absolute bottom-[8px] sm:bottom-[11px] right-[8px] sm:right-[11px] px-2 py-0.5 sm:w-[130px] sm:h-[24px] bg-[#2E9DA7] text-white flex items-center justify-center gap-1 sm:gap-1.5 rounded-full text-[9px] sm:text-xs font-medium shadow-sm z-10 whitespace-nowrap">
-            <img src="/Icons/van.svg" alt="Van" className="w-3 h-2.5 sm:w-4 sm:h-3.5 object-contain inline-block" draggable="false" />
+            <Image src="/Icons/van.svg" alt="Van" className="w-3 h-2.5 sm:w-4 sm:h-3.5 object-contain inline-block" draggable="false" width={12} height={8} />
             <span>Travels to you</span>
           </div>
         )}
@@ -107,7 +98,7 @@ export default function ServiceCard({
             {rec.title}
           </h3>
           <div className="flex items-center gap-0.5 sm:gap-1 shrink-0">
-            <img src="/Icons/star.svg" alt="star" className="w-[12px] h-[12px] sm:w-[16px] sm:h-[16px]" draggable="false" />
+            <Image src="/Icons/star.svg" alt="star" className="w-[12px] h-[12px] sm:w-[16px] sm:h-[16px]" draggable="false" width={24} height={24} />
             <span className="text-[10px] sm:text-xs font-semibold text-[#1C1B1C]">{rec.rating}</span>
             <span className="text-[9px] sm:text-xs font-medium text-[#757575]">({rec.reviews})</span>
           </div>
@@ -130,7 +121,7 @@ export default function ServiceCard({
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-[4px] sm:gap-[8px] flex-nowrap w-full overflow-hidden">
               <div className="flex items-center gap-[4px] sm:gap-[8px] shrink-0">
-                <img src="/Icons/colorfulVan.svg" alt="Van" className="w-[12px] h-[12px] sm:w-[16px] sm:h-[16px] object-contain" draggable="false" />
+                <Image src="/Icons/colorfulVan.svg" alt="Van" className="w-[12px] h-[12px] sm:w-[16px] sm:h-[16px] object-contain" draggable="false" width={24} height={24} />
                 <span className="font-poppins font-medium text-[10px] sm:text-[12px] leading-[16px] sm:leading-[20px] tracking-[0.01em] text-[#2E9DA7] block">
                   Travels to you
                 </span>

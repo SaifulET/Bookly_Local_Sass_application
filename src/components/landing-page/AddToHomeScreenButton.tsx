@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 
 interface AddToHomeScreenButtonProps {
@@ -33,8 +34,8 @@ export default function AddToHomeScreenButton({
           Add to Home Screen
         </span>
         {!showTextOnMobile && <span className="inline sm:hidden">Install</span>}
-        <img src="/Icons/appleSmall.svg" alt="Apple" className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0 object-contain" />
-        <img src="/Icons/android.svg" alt="Android" className="w-3.5 h-3.5 shrink-0 object-contain" />
+        <Image src="/Icons/appleSmall.svg" alt="Apple" className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0 object-contain" width={12} height={12} />
+        <Image src="/Icons/android.svg" alt="Android" className="w-3.5 h-3.5 shrink-0 object-contain" width={12} height={12} />
       </button>
     );
   }
@@ -48,8 +49,8 @@ export default function AddToHomeScreenButton({
         Add to Home screen
       </span>
       {!showTextOnMobile && <span className="inline sm:hidden text-[14px] leading-normal py-1 px-2">Install</span>}
-      <img src="/Icons/appleSmall.svg" alt="Apple" className="w-4 h-4 xs:w-5 xs:h-5 md:w-[26.45px] md:h-[26.45px] shrink-0 object-contain" />
-      <img src="/Icons/android.svg" alt="Android" className="w-4 h-4 xs:w-5 xs:h-5 md:w-[26.45px] md:h-[26.45px] shrink-0 object-contain" />
+      <Image src="/Icons/appleSmall.svg" alt="Apple" className="w-4 h-4 xs:w-5 xs:h-5 md:w-[26.45px] md:h-[26.45px] shrink-0 object-contain" width={16} height={16} />
+      <Image src="/Icons/android.svg" alt="Android" className="w-4 h-4 xs:w-5 xs:h-5 md:w-[26.45px] md:h-[26.45px] shrink-0 object-contain" width={16} height={16} />
     </button>
   );
 }

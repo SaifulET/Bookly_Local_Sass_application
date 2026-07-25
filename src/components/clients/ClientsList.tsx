@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
@@ -277,11 +278,7 @@ export default function ClientsList({
                     {/* Client details */}
                     <td className="px-5 py-3.5 flex items-center gap-3">
                       {client.avatar ? (
-                        <img 
-                          src={client.avatar} 
-                          className="w-8 h-8 rounded-full object-cover shrink-0" 
-                          alt="avatar" 
-                        />
+                        <Image src={client.avatar} className="w-8 h-8 rounded-full object-cover shrink-0" alt="avatar" width={32} height={32} />
                       ) : (
                         <div className={`w-8 h-8 rounded-full ${client.avatarBg} flex items-center justify-center text-[10px] font-semibold text-[#5F5E5A] shrink-0`}>
                           {client.avatarText}

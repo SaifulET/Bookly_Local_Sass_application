@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useRef, useState, useEffect } from "react";
 
 export default function AboutStory() {
@@ -25,7 +26,7 @@ export default function AboutStory() {
         <div className={`lg:col-span-2 p-10 lg:p-14 bg-[#F1EDED] border border-[#E5E2E1] rounded-3xl shadow-sm relative overflow-hidden flex flex-col gap-4 justify-center items-start transition-all duration-1000 ease-out ${bentoVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="absolute w-[256px] h-[256px] -right-[84px] -top-[127px] bg-[rgba(207,225,254,0.3)] blur-[32px] rounded-full pointer-events-none" />
           <div className="w-[68px] h-[68px] bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
-            <img src="/designImg/empoweringIcon.png" alt="Empowering Icon" className="w-9 h-9 object-contain" />
+            <Image src="/designImg/empoweringIcon.png" alt="Empowering Icon" className="w-9 h-9 object-contain" width={36} height={36} />
           </div>
           <h2 className="font-manrope font-bold text-3xl md:text-4xl text-[#020305] mt-2">
             Empowering Local Businesses
@@ -48,11 +49,7 @@ export default function AboutStory() {
 
         {/* Block 3: Story Block (Image) (Row 2, Col 1) */}
         <div className={`lg:col-span-1 h-[400px] bg-[#F1EDED] border border-[#E5E2E1] rounded-3xl shadow-sm flex items-center justify-center p-8 relative transition-all duration-1000 ease-out delay-150 ${bentoVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <img 
-            src="/designImg/aboutPageOurStory.png" 
-            alt="Our Story Illustration" 
-            className="max-w-full max-h-full object-contain drop-shadow-sm hover:scale-105 transition-transform duration-700 select-none"
-          />
+          <Image src="/designImg/aboutPageOurStory.png" alt="Our Story Illustration" className="max-w-full max-h-full object-contain drop-shadow-sm hover:scale-105 transition-transform duration-700 select-none" fill />
         </div>
 
         {/* Block 4: Our Story Block (Text) (Row 2, Col 2-3) */}

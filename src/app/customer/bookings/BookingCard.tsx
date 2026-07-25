@@ -117,12 +117,12 @@ export default function BookingCard({
           {/* Business Name and Phone */}
           <div className="flex flex-wrap items-center gap-2 text-sm text-[#111111] font-manrope">
             <div className="flex items-center gap-1">
-              <img src="/Icons/salonNameIcon.svg" className="w-[13.4px] h-[12px] object-contain" alt="salon" />
+              <Image src="/Icons/salonNameIcon.svg" className="w-[13.4px] h-[12px] object-contain" alt="salon" width={24} height={24} />
               <span className="font-normal">{booking.businessName}</span>
             </div>
             <span className="text-gray-400">•</span>
             <div className="flex items-center gap-1.5">
-              <img src="/Icons/phone.svg" className="w-3 h-3 object-contain" alt="phone" />
+              <Image src="/Icons/phone.svg" className="w-3 h-3 object-contain" alt="phone" width={12} height={12} />
               <span className="font-normal">{booking.phone}</span>
             </div>
           </div>
@@ -568,12 +568,7 @@ export default function BookingCard({
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-1">
                     {Array.from({ length: 5 }).map((_, idx) => (
-                      <img
-                        key={idx}
-                        src={idx < activeStars ? "/Icons/rattingfull.svg" : "/Icons/ratting.svg"}
-                        className="w-4 h-4 object-contain"
-                        alt="star"
-                      />
+                      <Image key={idx} src={idx < activeStars ? "/Icons/rattingfull.svg" : "/Icons/ratting.svg"} className="w-4 h-4 object-contain" alt="star" width={16} height={16} />
                     ))}
                   </div>
                   <span className="text-sm font-medium text-[#4E5F78]">{activeStars} out of 5</span>
@@ -604,11 +599,7 @@ export default function BookingCard({
                       onClick={() => setRatingInput((prev) => ({ ...prev, [booking.id]: starValue }))}
                       className="cursor-pointer transition-transform hover:scale-110"
                     >
-                      <img
-                        src={isFilled ? "/Icons/rattingfull.svg" : "/Icons/ratting.svg"}
-                        className="w-4 h-4 object-contain"
-                        alt="star"
-                      />
+                      <Image src={isFilled ? "/Icons/rattingfull.svg" : "/Icons/ratting.svg"} className="w-4 h-4 object-contain" alt="star" width={16} height={16} />
                     </button>
                   );
                 })}
@@ -655,7 +646,7 @@ export default function BookingCard({
             <div className="flex items-center gap-2">
               {booking.paymentType === "passed_fee" || booking.paymentType === "passed_not_possible" ? (
                 <>
-                  <img src="/Icons/danger-outilne.svg" className="w-4 h-4 object-contain" alt="warning" />
+                  <Image src="/Icons/danger-outilne.svg" className="w-4 h-4 object-contain" alt="warning" width={16} height={16} />
                   <span className="font-poppins font-medium text-sm text-[#8A4B08] leading-5">
                     {booking.paymentType === "passed_fee" 
                       ? "Free cancellation window has passed - a fee applies if you cancel now"

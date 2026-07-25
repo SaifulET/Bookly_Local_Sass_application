@@ -89,7 +89,7 @@ export default function CheckoutSummaryAside({
               <span className="font-bold">5.0</span>
               <div className="flex items-center">
                 {[1, 2, 3, 4, 5].map(star => (
-                  <img key={star} src="/Icons/rattingfull.svg" alt="star" className="w-3.5 h-3.5 object-contain" />
+                  <Image key={star} src="/Icons/rattingfull.svg" alt="star" className="w-3.5 h-3.5 object-contain" width={12} height={12} />
                 ))}
               </div>
               <span className="text-neutral-400 font-medium">(589)</span>

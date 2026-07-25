@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 
@@ -205,7 +206,7 @@ export default function DashboardSettings() {
                   </span>
                   <div className="flex items-center gap-4 mt-2">
                     <div className="relative w-20 h-20 rounded-full border border-neutral-200 overflow-hidden bg-neutral-100">
-                      <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
+                      <Image src={profileImage} alt="Profile" className="w-full h-full object-cover" fill />
                       <button 
                         type="button"
                         onClick={() => fileInputRef.current?.click()}
@@ -338,7 +339,7 @@ export default function DashboardSettings() {
                       <tr key={idx} className="hover:bg-neutral-50/50 h-[72px]">
                         <td className="py-2.5 px-6">
                           <div className="flex items-center gap-3">
-                            <img src={m.avatar} alt={m.name} className="w-10 h-10 rounded-full object-cover border border-[#E2E8F0]" />
+                            <Image src={m.avatar} alt={m.name} className="w-10 h-10 rounded-full object-cover border border-[#E2E8F0]" width={40} height={40} />
                             <div className="flex flex-col">
                               <span className="font-poppins font-medium text-[16px] leading-[28px] text-[#16123E]">
                                 {m.name}
@@ -597,7 +598,7 @@ export default function DashboardSettings() {
                 {/* App 1: Google Calendar */}
                 <div className="border border-neutral-100 rounded-[12px] p-4 flex flex-col items-start gap-3">
                   <div className="flex items-center gap-3">
-                    <img src="/Icons/Google.svg" alt="Google" className="w-8 h-8 object-contain" />
+                    <Image src="/Icons/Google.svg" alt="Google" className="w-8 h-8 object-contain" width={32} height={32} />
                     <div className="flex flex-col">
                       <div className="flex items-center gap-2">
                         <span className="font-semibold text-sm text-[#111111]">Google Calendar</span>
@@ -619,7 +620,7 @@ export default function DashboardSettings() {
                 {/* App 2: Instagram */}
                 <div className="border border-neutral-100 rounded-[12px] p-4 flex flex-col items-start gap-3">
                   <div className="flex items-center gap-3">
-                    <img src="/Icons/instagram1.svg" alt="Instagram" className="w-8 h-8 object-contain" />
+                    <Image src="/Icons/instagram1.svg" alt="Instagram" className="w-8 h-8 object-contain" width={32} height={32} />
                     <div className="flex flex-col">
                       <span className="font-semibold text-sm text-[#111111]">Instagram</span>
                       <span className="text-xs text-[#666666] mt-0.5">Add a "Connect" button directly to your Instagram profile.</span>
@@ -633,7 +634,7 @@ export default function DashboardSettings() {
                 {/* App 3: Facebook */}
                 <div className="border border-neutral-100 rounded-[12px] p-4 flex flex-col items-start gap-3">
                   <div className="flex items-center gap-3">
-                    <img src="/Icons/Facebook.svg" alt="Facebook" className="w-8 h-8 object-contain" />
+                    <Image src="/Icons/Facebook.svg" alt="Facebook" className="w-8 h-8 object-contain" width={32} height={32} />
                     <div className="flex flex-col">
                       <span className="font-semibold text-sm text-[#111111]">Facebook</span>
                       <span className="text-xs text-[#666666] mt-0.5">Add a "Connect" button directly to your Facebook profile.</span>

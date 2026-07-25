@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -489,7 +490,7 @@ export default function BusinessOverviewTab({ businessId }: BusinessOverviewTabP
                 <div key={idx} className="flex justify-between items-center py-2.5 border-b border-gray-50 last:border-b-0">
                   <div className="flex items-center gap-3">
                     <div className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
-                      <img src="/Icons/phone.svg" className="w-3.5 h-3.5" alt="phone" />
+                      <Image src="/Icons/phone.svg" className="w-3.5 h-3.5" alt="phone" width={12} height={12} />
                     </div>
                     <span className="text-sm font-medium text-gray-800">{item.phone}</span>
                     <span className={`px-2 py-0.5 rounded text-[10px] font-semibold ${

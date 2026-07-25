@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 
@@ -56,7 +57,7 @@ export default function CategorySelectorStep2({
                 {cat.icon ? (
                   <HugeiconsIcon icon={cat.icon} size={24} />
                 ) : (
-                  <img src="/Icons/famicon.svg" alt="pets & home" className="w-6 h-6 object-contain" />
+                  <Image src="/Icons/famicon.svg" alt="pets & home" className="w-6 h-6 object-contain" width={24} height={24} />
                 )}
               </div>
               {/* Text */}

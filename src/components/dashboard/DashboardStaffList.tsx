@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 
@@ -197,11 +198,7 @@ export default function DashboardStaffList() {
                 onClick={() => fileInputRef.current?.click()}
                 className="w-[80px] h-[80px] rounded-full bg-[#E1E0E6] flex items-center justify-center overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
               >
-                <img 
-                  src={photoPreview || "/img/dumyUser.jpeg"} 
-                  alt="Avatar Preview" 
-                  className="w-full h-full object-cover"
-                />
+                <Image src={photoPreview || "/img/dumyUser.jpeg"} alt="Avatar Preview" className="w-full h-full object-cover" fill />
               </div>
               <button
                 type="button"

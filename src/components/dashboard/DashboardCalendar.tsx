@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import NotificationBell from "@/components/notifications/NotificationBell";
 import WaiveChargeModal from "./WaiveChargeModal";
 import { NoShowModal, CompleteModal, CancelBookingModal } from "./CalendarActionModals";
@@ -272,7 +273,7 @@ export default function DashboardCalendar({
         className="absolute right-6 top-[25px] z-50 w-[160px] bg-white rounded-xl shadow-2xl border border-[#C6C6CB] flex flex-col py-1 text-xs select-none animate-fadeIn"
       >
         <button className="px-4 py-2 hover:bg-neutral-50 text-left flex items-center gap-2 text-[#BA1A1A] font-medium cursor-pointer" onClick={() => handleMarkNoShow(cardId)}>
-          <img src="/calederions/userCross.svg" alt="No-show" className="w-3.5 h-3.5 shrink-0" />
+          <Image src="/calederions/userCross.svg" alt="No-show" className="w-3.5 h-3.5 shrink-0" width={12} height={12} />
           <span>No-show</span>
         </button>
         <button className="px-4 py-2 hover:bg-neutral-50 text-left flex items-center gap-2 text-[#1C1B1C] font-medium cursor-pointer" onClick={() => handleWaiveCharge(cardId)}>
@@ -482,11 +483,7 @@ export default function DashboardCalendar({
                     {activeStaffList.map((staff, index) => (
                       <div key={index} className="flex flex-col items-center justify-center py-3.5 gap-1.5">
                         <div className={`p-[1px] rounded-full ${staff.hasBorder ? "border-2 border-[#0CC0DF]" : "border border-neutral-200"}`}>
-                          <img
-                            src="/calederions/calendrImage.jpg"
-                            alt={staff.name}
-                            className="w-10 h-10 rounded-full object-cover"
-                          />
+                          <Image src="/calederions/calendrImage.jpg" alt={staff.name} className="w-10 h-10 rounded-full object-cover" width={40} height={40} />
                         </div>
                         <div className="flex items-center gap-1 cursor-pointer">
                           <span className="font-poppins text-xs font-semibold text-[#020305]">{staff.name}</span>
@@ -588,11 +585,7 @@ export default function DashboardCalendar({
                           className="border-r border-[#C6C6CB] bg-[#FCF8F8] p-3 flex flex-col items-center justify-center gap-1 shrink-0 z-10"
                           style={{ width: "80px" }}
                         >
-                          <img
-                            src="/calederions/calendrImage.jpg"
-                            alt={staff.name}
-                            className="w-9 h-9 rounded-full object-cover border border-neutral-200"
-                          />
+                          <Image src="/calederions/calendrImage.jpg" alt={staff.name} className="w-9 h-9 rounded-full object-cover border border-neutral-200" width={36} height={36} />
                           <span className="font-poppins text-xs font-semibold text-[#020305] text-center leading-tight">
                             {staff.name}
                           </span>
@@ -831,7 +824,7 @@ export default function DashboardCalendar({
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white border border-[#C6C6CB] rounded-xl px-4 py-3 shadow-xl flex flex-col sm:flex-row items-center justify-between w-[calc(100%-32px)] sm:w-[640px] min-h-[94px] h-auto gap-4 sm:gap-0 z-30 select-none animate-fadeIn">
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <div className="w-[31px] h-10 rounded-full bg-[#CFE1FE] flex items-center justify-center shrink-0">
-              <img src="/calederions/edit.svg" alt="Edit Icon" className="w-5 h-5 object-contain" />
+              <Image src="/calederions/edit.svg" alt="Edit Icon" className="w-5 h-5 object-contain" width={20} height={20} />
             </div>
             <div className="flex flex-col">
               <span className="font-poppins text-sm font-semibold text-[#020305]">{selectedSlots.length} {selectedSlots.length === 1 ? "slot" : "slots"} selected</span>

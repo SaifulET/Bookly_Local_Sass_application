@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useRef, useState, useEffect } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Clock01Icon, Analytics01Icon, Calendar03Icon, UserGroup03Icon, ZapIcon } from "@hugeicons/core-free-icons";
@@ -103,14 +104,14 @@ export default function ListYourBusinessFeatures({
         />
         <BusinessFeatureCard
           index={1}
-          icon={<img src="/Icons/businessIcon/Chield_check.svg" alt="" className="w-6 h-6 object-contain" />}
+          icon={<Image src="/Icons/businessIcon/Chield_check.svg" alt="" className="w-6 h-6 object-contain" width={24} height={24} />}
           title="No-Show Protection"
           description="Customers save a card at booking. If they don't show, you charge the fee instantly — one tap. You set the amount, you decide every time."
           globalVisible={featuresVisible}
         />
         <BusinessFeatureCard
           index={2}
-          icon={<img src="/Icons/businessIcon/Bell_pin.svg" alt="" className="w-6 h-6 object-contain" />}
+          icon={<Image src="/Icons/businessIcon/Bell_pin.svg" alt="" className="w-6 h-6 object-contain" width={24} height={24} />}
           title="Automatic Reminders"
           description="SMS and email reminders sent automatically before every appointment. Fewer no-shows, less chasing."
           globalVisible={featuresVisible}
@@ -138,7 +139,7 @@ export default function ListYourBusinessFeatures({
         />
         <BusinessFeatureCard
           index={6}
-          icon={<img src="/Icons/businessIcon/star-light.svg" alt="" className="w-6 h-6 object-contain" />}
+          icon={<Image src="/Icons/businessIcon/star-light.svg" alt="" className="w-6 h-6 object-contain" width={24} height={24} />}
           title="Verified Reviews"
           description="Only real customers who booked through Bookly can leave reviews. Genuine ratings that build your reputation."
           globalVisible={featuresVisible}
@@ -152,7 +153,7 @@ export default function ListYourBusinessFeatures({
         />
         <BusinessFeatureCard
           index={8}
-          icon={<img src="/Icons/businessIcon/security-check.svg" alt="" className="w-6 h-6 object-contain" />}
+          icon={<Image src="/Icons/businessIcon/security-check.svg" alt="" className="w-6 h-6 object-contain" width={24} height={24} />}
           title="Secure Payments"
           description="Deposits processed via Stripe — the same technology used by millions of businesses worldwide. Safe, fast and reliable."
           globalVisible={featuresVisible}

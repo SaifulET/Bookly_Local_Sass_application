@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 
@@ -303,7 +304,7 @@ export default function DashboardCreateBusiness({ onBack, mode = "create" }: Das
           {/* Duplicate to simulate a filled grid matching the 2nd screenshot if we have 3 photos */}
           {[...photos, ...photos].map((src, idx) => (
             <div key={idx} className="relative w-full aspect-square rounded-[12px] bg-[#D9D9D9] border border-neutral-200">
-              <img src={src} className="w-full h-full object-cover rounded-[12px]" alt={`Business photo ${idx + 1}`} />
+              <Image src={src} className="w-full h-full object-cover rounded-[12px]" alt={`Business photo ${idx + 1}`} fill />
 
               {/* White circular 3-dot overlay button */}
               <button
@@ -373,7 +374,7 @@ export default function DashboardCreateBusiness({ onBack, mode = "create" }: Das
             onClick={() => setPreviewImage(null)}
           >
             <div className="relative max-w-3xl max-h-[80vh] bg-white p-2 rounded-xl" onClick={(e) => e.stopPropagation()}>
-              <img src={previewImage} className="max-w-full max-h-[75vh] rounded-lg object-contain" />
+              <Image src={previewImage} alt="Preview" className="max-w-full max-h-[75vh] rounded-lg object-contain" width={24} height={24} />
               <button 
                 type="button"
                 onClick={() => setPreviewImage(null)}

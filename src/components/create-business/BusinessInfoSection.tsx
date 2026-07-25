@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 
 interface BusinessInfoSectionProps {
@@ -77,7 +78,7 @@ export default function BusinessInfoSection({
               onClick={() => setShowCountryDropdown(!showCountryDropdown)}
               className="box-border flex flex-row items-center justify-center gap-1.5 px-3 w-[96px] h-11 bg-white border border-[#D5D2C9] rounded-l-lg hover:bg-neutral-50 transition-colors select-none text-xs"
             >
-              <img src={`https://flagcdn.com/w40/${phoneFlag}.png`} className="w-[26px] h-[14px] object-cover rounded-sm shrink-0 border border-neutral-100" alt="flag" />
+              <Image src={`https://flagcdn.com/w40/${phoneFlag}.png`} className="w-[26px] h-[14px] object-cover rounded-sm shrink-0 border border-neutral-100" alt="flag" width={24} height={24} />
               <span className="text-[#1C1C1A]/50 font-medium">{phoneCode}</span>
               <span className="text-[10px] text-neutral-400">▼</span>
             </button>
@@ -96,7 +97,7 @@ export default function BusinessInfoSection({
                     }}
                     className="flex items-center gap-2 w-full px-3 py-2 text-xs hover:bg-neutral-50 rounded text-left font-poppins"
                   >
-                    <img src={`https://flagcdn.com/w40/${c.flag}.png`} className="w-[20px] h-[12px] object-cover rounded-sm shrink-0 border border-neutral-100" alt="flag" />
+                    <Image src={`https://flagcdn.com/w40/${c.flag}.png`} className="w-[20px] h-[12px] object-cover rounded-sm shrink-0 border border-neutral-100" alt="flag" width={24} height={24} />
                     <span className="font-semibold text-neutral-800">{c.code}</span>
                     <span className="text-neutral-500 text-[10px] ml-auto">{c.name}</span>
                   </button>

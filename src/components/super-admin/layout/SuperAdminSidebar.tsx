@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -75,7 +76,7 @@ export default function SuperAdminSidebar({
             onClick={() => setIsCollapsed(!isCollapsed)}
             className="w-6 h-6 flex items-center justify-center cursor-pointer text-[#757575] hover:bg-gray-100 rounded transition-colors"
           >
-            <img src="/Icons/businessIcon/Sidebar.svg" alt="Collapse Sidebar" className="w-6 h-6 object-contain" />
+            <Image src="/Icons/businessIcon/Sidebar.svg" alt="Collapse Sidebar" className="w-6 h-6 object-contain" width={24} height={24} />
           </button>
         </div>
 

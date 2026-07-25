@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -207,9 +208,9 @@ export default function SuperAdminCustomerDetail({
 
               {/* Phone */}
               <div className="flex items-center gap-1.5">
-                <img src="/Icons/phone.svg" alt="phone" className="w-3.5 h-3.5 text-gray-400 shrink-0" onError={(e) => {
+                <Image src="/Icons/phone.svg" alt="phone" className="w-3.5 h-3.5 text-gray-400 shrink-0" onError={(e) => {
                   e.currentTarget.style.display = "none";
-                }} />
+                }} width={12} height={12} />
                 <span>{customer.phone}</span>
               </div>
 

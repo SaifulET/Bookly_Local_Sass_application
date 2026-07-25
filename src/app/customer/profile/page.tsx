@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -182,7 +183,7 @@ export default function ProfilePage() {
       />
 
       <div className="absolute top-0 left-0 -z-10 w-full pointer-events-none opacity-40">
-        <img src="/designImg/topEllipes.svg" alt="" className="absolute top-0 left-0 w-[500px] h-[500px]" />
+        <Image src="/designImg/topEllipes.svg" alt="" className="absolute top-0 left-0 w-[500px] h-[500px]" width={24} height={24} />
       </div>
 
       {/* 1. App Install Banner */}
@@ -190,7 +191,7 @@ export default function ProfilePage() {
         <div className="w-full bg-[#96C3CD] text-[#111111] px-3 sm:px-[16px] py-2.5 sm:py-[16px] flex items-center justify-between transition-all duration-300 relative z-50 text-[10px] sm:text-xs md:text-sm font-medium">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <div className="w-[17px] h-[20px] flex items-center justify-center shrink-0">
-              <img src="/img/smallBLogo.svg" alt="B" className="w-full h-full object-contain" />
+              <Image src="/img/smallBLogo.svg" alt="B" className="w-full h-full object-contain" fill />
             </div>
             <span className="truncate">Book local services in Cyprus — instantly, any time</span>
           </div>
@@ -311,11 +312,7 @@ export default function ProfilePage() {
                         Phone number
                       </span>
                       <span className="font-manrope font-medium text-[18px] leading-7 text-[#1C1B1C] flex items-center gap-1.5">
-                        <img 
-                          src={`https://flagcdn.com/w20/${profileData.countryIso || "cy"}.png`} 
-                          alt="Flag" 
-                          className="w-4 h-3 object-cover shrink-0" 
-                        />
+                        <Image src={`https://flagcdn.com/w20/${profileData.countryIso || "cy"}.png`} alt="Flag" className="w-4 h-3 object-cover shrink-0" width={16} height={12} />
                         <span>{profileData.countryCode} {profileData.phoneNumber}</span>
                       </span>
                     </div>
@@ -432,11 +429,7 @@ export default function ProfilePage() {
                             className="flex items-center gap-1.5 px-3 h-full cursor-pointer hover:bg-neutral-50/50 transition-colors rounded-l-lg"
                             onClick={() => setShowCountryDropdown(!showCountryDropdown)}
                           >
-                            <img 
-                              src={`https://flagcdn.com/w20/${formData.countryIso || "cy"}.png`} 
-                              alt="Flag" 
-                              className="w-4 h-3 object-cover shrink-0" 
-                            />
+                            <Image src={`https://flagcdn.com/w20/${formData.countryIso || "cy"}.png`} alt="Flag" className="w-4 h-3 object-cover shrink-0" width={16} height={12} />
                             <span className="font-manrope font-medium text-[#1C1B1C] text-sm">{formData.countryCode}</span>
                             <HugeiconsIcon icon={ArrowDown01Icon} size={14} className="text-[#45474B]" />
                           </div>
@@ -480,11 +473,7 @@ export default function ProfilePage() {
                                       className="flex items-center justify-between px-3 py-2 hover:bg-neutral-50 text-left w-full transition-colors cursor-pointer"
                                     >
                                       <div className="flex items-center gap-2 min-w-0">
-                                        <img 
-                                          src={`https://flagcdn.com/w20/${c.iso}.png`} 
-                                          alt={c.code} 
-                                          className="w-4 h-3 object-cover shrink-0" 
-                                        />
+                                        <Image src={`https://flagcdn.com/w20/${c.iso}.png`} alt={c.code} className="w-4 h-3 object-cover shrink-0" width={16} height={12} />
                                         <span className="font-manrope font-medium text-xs text-[#1C1B1C] truncate">{c.name}</span>
                                       </div>
                                       <span className="font-manrope font-semibold text-xs text-neutral-400 shrink-0 pl-2">{c.code}</span>

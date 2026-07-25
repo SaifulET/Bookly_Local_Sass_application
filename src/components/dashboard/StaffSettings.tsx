@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import React, { useState, useEffect, useRef } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -197,7 +198,7 @@ export default function StaffSettings() {
                   </span>
                   <div className="flex items-center gap-4 mt-2">
                     <div className="relative w-20 h-20 rounded-full border border-neutral-200 overflow-hidden bg-neutral-100">
-                      <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
+                      <Image src={profileImage} alt="Profile" className="w-full h-full object-cover" fill />
                       <button 
                         type="button"
                         className="absolute bottom-1 right-1 w-6 h-6 bg-white border border-neutral-300 rounded-full flex items-center justify-center hover:bg-neutral-50 shadow-sm cursor-pointer"

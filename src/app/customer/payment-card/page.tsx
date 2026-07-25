@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -62,7 +63,7 @@ export default function PaymentCardPage() {
       <EdgeSoftOrbsTop size={380} duration={56} intensity={0.85} blend="screen" zIndex={-5} />
 
       <div className="absolute top-0 left-0 -z-10 w-full pointer-events-none opacity-40">
-        <img src="/designImg/topEllipes.svg" alt="" className="absolute top-0 left-0 w-[500px] h-[500px]" />
+        <Image src="/designImg/topEllipes.svg" alt="" className="absolute top-0 left-0 w-[500px] h-[500px]" width={24} height={24} />
       </div>
 
       <Navbar
@@ -123,11 +124,7 @@ export default function PaymentCardPage() {
                 <div className="flex items-center gap-3">
                   {/* Visa Logo: Frame 2147240159 */}
                   <div className="w-[51.62px] h-[36px] bg-[#F5F4EE] rounded flex items-center justify-center p-2 shrink-0 select-none">
-                    <img
-                      src="https://raw.githubusercontent.com/aaronfagan/svg-credit-card-payment-icons/master/logo/visa.svg"
-                      alt="Visa"
-                      className="w-[28.15px] h-[12.54px] object-contain"
-                    />
+                    <Image src="https://raw.githubusercontent.com/aaronfagan/svg-credit-card-payment-icons/master/logo/visa.svg" alt="Visa" className="w-[28.15px] h-[12.54px] object-contain" width={24} height={24} />
                   </div>
 
                   {/* Card number dots and expiry: Frame 2147240158 */}
@@ -228,21 +225,9 @@ export default function PaymentCardPage() {
                     />
                     {/* Brand Logos on right */}
                     <div className="flex items-center gap-1.5 shrink-0 opacity-80 select-none">
-                      <img
-                        src="https://raw.githubusercontent.com/aaronfagan/svg-credit-card-payment-icons/master/logo/visa.svg"
-                        alt="Visa"
-                        className="h-4 w-auto object-contain"
-                      />
-                      <img
-                        src="https://raw.githubusercontent.com/aaronfagan/svg-credit-card-payment-icons/master/logo/mastercard.svg"
-                        alt="Mastercard"
-                        className="h-4 w-auto object-contain"
-                      />
-                      <img
-                        src="https://raw.githubusercontent.com/aaronfagan/svg-credit-card-payment-icons/master/logo/amex.svg"
-                        alt="Amex"
-                        className="h-4 w-auto object-contain"
-                      />
+                      <Image src="https://raw.githubusercontent.com/aaronfagan/svg-credit-card-payment-icons/master/logo/visa.svg" alt="Visa" className="h-4 w-auto object-contain" width={16} height={16} />
+                      <Image src="https://raw.githubusercontent.com/aaronfagan/svg-credit-card-payment-icons/master/logo/mastercard.svg" alt="Mastercard" className="h-4 w-auto object-contain" width={16} height={16} />
+                      <Image src="https://raw.githubusercontent.com/aaronfagan/svg-credit-card-payment-icons/master/logo/amex.svg" alt="Amex" className="h-4 w-auto object-contain" width={16} height={16} />
                     </div>
                   </div>
                 </div>

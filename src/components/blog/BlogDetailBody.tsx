@@ -135,12 +135,12 @@ export default function BlogDetailBody({
         <div className="flex items-center gap-3">
           {/* Facebook */}
           <button className="w-[58px] h-[58px] bg-[#8EBAC5]/20 border border-[#D5D7DA] shadow-md rounded-[16px] flex items-center justify-center hover:opacity-90 transition-opacity cursor-pointer">
-            <img src="/Icons/Facebook.svg" alt="Facebook" className="w-6 h-6 object-contain" />
+            <Image src="/Icons/Facebook.svg" alt="Facebook" className="w-6 h-6 object-contain" width={24} height={24} />
           </button>
 
           {/* Instagram */}
           <button className="w-[58px] h-[58px] bg-[#8EBAC5]/20 border border-[#D5D7DA] shadow-md rounded-[16px] flex items-center justify-center hover:opacity-90 transition-opacity cursor-pointer">
-            <img src="/Icons/instagram1.svg" alt="Instagram" className="w-6 h-6 object-contain" />
+            <Image src="/Icons/instagram1.svg" alt="Instagram" className="w-6 h-6 object-contain" width={24} height={24} />
           </button>
         </div>
       </div>

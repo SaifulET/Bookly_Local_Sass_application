@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -103,13 +104,13 @@ export default function StaffSidebar({
             onClick={() => setIsCollapsed(false)}
             className="w-8 h-8 rounded-lg hover:bg-[#B0C5C8]/50 flex items-center justify-center text-[#1C1B1C] transition-all cursor-pointer"
           >
-            <img src="/businessDashboard/Sidebar Icon.svg" alt="Toggle Sidebar" className="w-6 h-6 object-contain" />
+            <Image src="/businessDashboard/Sidebar Icon.svg" alt="Toggle Sidebar" className="w-6 h-6 object-contain" width={24} height={24} />
           </button>
         ) : (
           <>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 flex items-center justify-center shrink-0">
-                <img src="/img/smallBlacklogo.svg" alt="Bookly" className="w-full h-full object-contain" />
+                <Image src="/img/smallBlacklogo.svg" alt="Bookly" className="w-full h-full object-contain" fill />
               </div>
               <div className="flex flex-col leading-none">
                 <span className="font-bold text-[#111111] text-[15px] tracking-wide font-poppins">Bookly.cy</span>
@@ -120,7 +121,7 @@ export default function StaffSidebar({
               onClick={() => setIsCollapsed(true)}
               className="w-8 h-8 rounded-lg hover:bg-[#B0C5C8]/50 flex items-center justify-center text-[#1C1B1C] transition-all cursor-pointer"
             >
-              <img src="/businessDashboard/Sidebar Icon.svg" alt="Toggle Sidebar" className="w-5 h-5 object-contain" />
+              <Image src="/businessDashboard/Sidebar Icon.svg" alt="Toggle Sidebar" className="w-5 h-5 object-contain" width={20} height={20} />
             </button>
           </>
         )}
@@ -171,11 +172,7 @@ export default function StaffSidebar({
       <div className="border-t border-[#757575]/30 bg-[#C0D5D8] flex flex-col shrink-0 relative">
         <div className={`p-4 flex items-center ${isCollapsed ? "justify-center" : "justify-between"}`}>
           <div className="flex items-center gap-3 cursor-pointer select-none" onClick={() => setShowFooterMenu(!showFooterMenu)}>
-            <img
-              src={profileImage}
-              alt="User Profile"
-              className="w-10 h-10 rounded-full object-cover border border-[#4E5F78]"
-            />
+            <Image src={profileImage} alt="User Profile" className="w-10 h-10 rounded-full object-cover border border-[#4E5F78]" width={40} height={40} />
             {!isCollapsed && (
               <div className="flex flex-col">
                 <span className="font-semibold text-sm text-[#111111]">MasterPlan LLC</span>

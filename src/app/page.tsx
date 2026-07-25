@@ -665,8 +665,8 @@ export default function LandingPage() {
 
       {/* Design Background Blobs */}
       <div className="absolute top-0 left-0 -z-10 w-full pointer-events-none opacity-40">
-        <img src="/designImg/topEllipes.svg" alt="" className="absolute top-0 left-0 w-[500px] h-[500px]" />
-        <img src="/designImg/middleEllipes.svg" alt="" className="absolute top-[20%] right-0 w-[600px] h-[600px]" />
+        <Image src="/designImg/topEllipes.svg" alt="" className="absolute top-0 left-0 w-[500px] h-[500px]" width={24} height={24} />
+        <Image src="/designImg/middleEllipes.svg" alt="" className="absolute top-[20%] right-0 w-[600px] h-[600px]" width={24} height={24} />
       </div>
 
       {/* 1. Top Banner */}
@@ -674,7 +674,7 @@ export default function LandingPage() {
         <div className="w-full bg-[#96C3CD] text-[#111111] px-3 sm:px-[16px] py-2.5 sm:py-[16px] flex items-center justify-between transition-all duration-300 relative z-50 text-[10px] sm:text-xs md:text-sm font-medium">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <div className="w-[17px] h-[20px] flex items-center justify-center shrink-0">
-              <img src="/img/smallBLogo.svg" alt="B" className="w-full h-full object-contain" />
+              <Image src="/img/smallBLogo.svg" alt="B" className="w-full h-full object-contain" fill />
             </div>
             <span className="truncate">Reach new customers across Cyprus. Zero monthly fees. No risk</span>
           </div>
@@ -833,7 +833,7 @@ export default function LandingPage() {
               }`}
           >
             <div className="p-1 rounded bg-[#EDE3DE] flex items-center justify-center">
-              <img src="/Icons/famicon.svg" alt="FemiIcon" className="w-6 h-6 object-contain" />
+              <Image src="/Icons/famicon.svg" alt="FemiIcon" className="w-6 h-6 object-contain" width={24} height={24} />
             </div>
             <span className="text-xs font-semibold tracking-wider uppercase text-center">Pets & Home</span>
           </button>
@@ -1060,7 +1060,7 @@ export default function LandingPage() {
             />
             <LandingStepCard
               index={2}
-              icon={<img src="/Icons/glasses.svg" alt="Cheers" className="w-9 h-9 object-contain" draggable="false" />}
+              icon={<Image src="/Icons/glasses.svg" alt="Cheers" className="w-9 h-9 object-contain" draggable="false" width={36} height={36} />}
               title="Show up and enjoy"
               description="Pay the remaining balance at the venue by cash or card. That's it!"
             />
@@ -1106,12 +1106,7 @@ export default function LandingPage() {
 
           {/* Curved Arrow Image */}
           <div className="absolute left-[120px] xl:left-[256px] top-[215px] xl:top-[245px] w-[36px] xl:w-[114px] h-[40px] xl:h-[151px] pointer-events-none opacity-95 z-20 add-home-screen-arrow-icon">
-            <img
-              src="/Icons/direction.png"
-              alt="Direction Arrow"
-              className="w-full h-full object-contain"
-              draggable="false"
-            />
+            <Image src="/Icons/direction.png" alt="Direction Arrow" className="w-full h-full object-contain" draggable="false" fill />
           </div>
 
           {/* Right Side: Phone Image mockup */}
@@ -1131,15 +1126,9 @@ export default function LandingPage() {
                 }}
               />
 
-              <img
-                src="/img/mobile.png"
-                alt="Bookly App Mockup"
-                style={{
+              <Image src="/img/mobile.png" alt="Bookly App Mockup" style={{
                   transform: "rotate(6.83deg)"
-                }}
-                className="object-fill z-10 max-w-none mockup-image-fixed"
-                draggable="false"
-              />
+                }} className="object-fill z-10 max-w-none mockup-image-fixed" draggable="false" width={24} height={24} />
             </div>
           </div>
 

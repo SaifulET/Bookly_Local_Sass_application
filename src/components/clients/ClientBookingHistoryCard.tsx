@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -250,7 +251,7 @@ export default function ClientBookingHistoryCard({
             <div className="flex items-center justify-between gap-4 w-full">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden border border-neutral-100 shrink-0">
-                  <img src={clientAvatar} alt={clientName} className="w-full h-full object-cover" />
+                  <Image src={clientAvatar} alt={clientName} className="w-full h-full object-cover" fill />
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-2">
@@ -276,7 +277,7 @@ export default function ClientBookingHistoryCard({
                       <span>{clientEmail}</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <img src="/Icons/phone.svg" alt="Phone" className="w-4 h-4 object-contain filter opacity-60" />
+                      <Image src="/Icons/phone.svg" alt="Phone" className="w-4 h-4 object-contain filter opacity-60" width={16} height={16} />
                       <span>{clientPhone}</span>
                     </div>
                   </div>

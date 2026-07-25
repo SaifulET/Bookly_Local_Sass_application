@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 
@@ -262,12 +263,7 @@ export default function DashboardBookingForm({
                       className="w-full h-full border border-[#E8E8E4] border-r-0 rounded-l-lg bg-white flex items-center justify-between px-2.5 cursor-pointer text-xs font-poppins focus:outline-none select-none"
                     >
                       <div className="flex items-center gap-1.5">
-                        <img
-                          src={newBookingPhoneCode === "+357" ? "https://flagcdn.com/w20/cy.png" : "https://flagcdn.com/w20/us.png"}
-                          alt="flag"
-                          className="w-5 h-3.5 object-cover rounded-sm"
-                          draggable="false"
-                        />
+                        <Image src={newBookingPhoneCode === "+357" ? "https://flagcdn.com/w20/cy.png" : "https://flagcdn.com/w20/us.png"} alt="flag" className="w-5 h-3.5 object-cover rounded-sm" draggable="false" width={20} height={12} />
                         <span>{newBookingPhoneCode}</span>
                       </div>
                       <HugeiconsIcon icon={ArrowDown01Icon} className="w-3 h-3 text-neutral-400" />
@@ -285,7 +281,7 @@ export default function DashboardBookingForm({
                             }}
                             className="px-3 py-2 hover:bg-neutral-50 flex items-center gap-2 text-left w-full transition-colors"
                           >
-                            <img src="https://flagcdn.com/w20/cy.png" alt="Cyprus flag" className="w-5 h-3.5 object-cover rounded-sm" />
+                            <Image src="https://flagcdn.com/w20/cy.png" alt="Cyprus flag" className="w-5 h-3.5 object-cover rounded-sm" width={20} height={12} />
                             <span>Cyprus (+357)</span>
                           </button>
                           <button
@@ -296,7 +292,7 @@ export default function DashboardBookingForm({
                             }}
                             className="px-3 py-2 hover:bg-neutral-50 flex items-center gap-2 text-left w-full transition-colors"
                           >
-                            <img src="https://flagcdn.com/w20/us.png" alt="US flag" className="w-5 h-3.5 object-cover rounded-sm" />
+                            <Image src="https://flagcdn.com/w20/us.png" alt="US flag" className="w-5 h-3.5 object-cover rounded-sm" width={20} height={12} />
                             <span>US (+1)</span>
                           </button>
                         </div>

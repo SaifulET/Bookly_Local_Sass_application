@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 
@@ -888,7 +889,7 @@ export default function DashboardServicesList() {
                       isSelected ? "bg-[#2E9DA7] text-white border-[#2E9DA7]" : "bg-white text-[#111111] border-neutral-200"
                     }`}
                   >
-                    <img src={staff.avatar} alt={staff.name} className="w-6 h-6 rounded-full object-cover" />
+                    <Image src={staff.avatar} alt={staff.name} className="w-6 h-6 rounded-full object-cover" width={24} height={24} />
                     <span>{staff.name}</span>
                   </button>
                 );

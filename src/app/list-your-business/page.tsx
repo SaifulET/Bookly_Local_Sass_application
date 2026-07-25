@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
@@ -152,8 +153,8 @@ export default function ListYourBusinessPage() {
 
       {/* Decorative Ellipse Blobs */}
       <div className="absolute top-0 left-0 -z-10 w-full pointer-events-none opacity-40">
-        <img src="/designImg/topEllipes.svg" alt="" className="absolute top-0 left-0 w-[500px] h-[500px]" />
-        <img src="/designImg/middleEllipes.svg" alt="" className="absolute top-[20%] right-0 w-[600px] h-[600px]" />
+        <Image src="/designImg/topEllipes.svg" alt="" className="absolute top-0 left-0 w-[500px] h-[500px]" width={24} height={24} />
+        <Image src="/designImg/middleEllipes.svg" alt="" className="absolute top-[20%] right-0 w-[600px] h-[600px]" width={24} height={24} />
       </div>
 
       {/* 1. Navbar & App Banner */}

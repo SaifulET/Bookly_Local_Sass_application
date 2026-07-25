@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 
@@ -163,7 +164,7 @@ export default function ClientForm({
               className="relative w-14 h-14 bg-[#E1F5EE] rounded-full flex items-center justify-center select-none cursor-pointer hover:opacity-95 transition-opacity"
             >
               {clientAvatar ? (
-                <img src={clientAvatar} className="w-full h-full rounded-full object-cover" alt="client avatar" />
+                <Image src={clientAvatar} className="w-full h-full rounded-full object-cover" alt="client avatar" fill />
               ) : (
                 <HugeiconsIcon icon={User02Icon} className="w-[22px] h-[22px] text-[#ABAAA6]" />
               )}
@@ -217,11 +218,7 @@ export default function ClientForm({
                   onClick={() => setIsClientPhoneDropdownOpen(!isClientPhoneDropdownOpen)}
                   className="bg-white border border-[#E8E8E4] border-r-0 rounded-l-lg px-3 flex items-center gap-1.5 text-xs text-neutral-500 shrink-0 cursor-pointer select-none hover:bg-neutral-50/50"
                 >
-                  <img 
-                    src={`https://flagcdn.com/w20/${clientPhoneFlag}.png`} 
-                    alt="flag" 
-                    className="w-[18px] h-[12px] object-cover rounded-sm border border-neutral-100 shrink-0" 
-                  />
+                  <Image src={`https://flagcdn.com/w20/${clientPhoneFlag}.png`} alt="flag" className="w-[18px] h-[12px] object-cover rounded-sm border border-neutral-100 shrink-0" width={24} height={24} />
                   <span>{clientPhoneCode}</span>
                   <svg className="w-3 h-3 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -247,7 +244,7 @@ export default function ClientForm({
                           }}
                           className="flex items-center gap-2 w-full px-3 py-2 hover:bg-neutral-50 rounded text-left font-poppins"
                         >
-                          <img src={`https://flagcdn.com/w40/${c.flag}.png`} className="w-[20px] h-[12px] object-cover rounded-sm shrink-0 border border-neutral-100" alt="flag" />
+                          <Image src={`https://flagcdn.com/w40/${c.flag}.png`} className="w-[20px] h-[12px] object-cover rounded-sm shrink-0 border border-neutral-100" alt="flag" width={24} height={24} />
                           <span className="font-semibold text-neutral-800">{c.code}</span>
                           <span className="text-neutral-500 text-[10px] ml-auto">{c.name}</span>
                         </button>
@@ -495,7 +492,7 @@ export default function ClientForm({
           <div className="flex flex-col items-center gap-3">
             <div className="w-16 h-16 bg-[#E1F5EE] rounded-full flex items-center justify-center overflow-hidden">
               {clientAvatar ? (
-                <img src={clientAvatar} className="w-full h-full object-cover" alt="client avatar preview" />
+                <Image src={clientAvatar} className="w-full h-full object-cover" alt="client avatar preview" fill />
               ) : (
                 <HugeiconsIcon icon={User02Icon} className="w-[26px] h-[26px] text-[#ABAAA6]" />
               )}
@@ -512,7 +509,7 @@ export default function ClientForm({
             {/* Phone Row */}
             <div className="flex items-start gap-3">
               <div className="w-[15px] h-[15px] flex items-center justify-center shrink-0 mt-0.5">
-                <img src="/Icons/phone.svg" alt="Phone" className="w-[15px] h-[15px] object-contain opacity-60" />
+                <Image src="/Icons/phone.svg" alt="Phone" className="w-[15px] h-[15px] object-contain opacity-60" width={24} height={24} />
               </div>
               <div className="flex flex-col">
                 <span className="font-poppins text-[10px] text-[#ABAAA6] leading-none">Phone</span>

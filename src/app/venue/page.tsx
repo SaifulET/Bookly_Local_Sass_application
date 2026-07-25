@@ -428,7 +428,7 @@ function VenueDetailsContent() {
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm sm:text-[15.9px] text-gray-500 font-inter">
               <div className="flex items-center gap-1.5 text-[#0D0D0D] font-semibold">
                 <span>{mockVenueDetails.rating.toFixed(1)}</span>
-                <img src="/Icons/rattingfull.svg" alt="star" className="w-4 h-4 object-contain" />
+                <Image src="/Icons/rattingfull.svg" alt="star" className="w-4 h-4 object-contain" width={16} height={16} />
                 <span className="font-normal text-[#757575]">({mockVenueDetails.reviewsCount} Reviews)</span>
               </div>
               <span className="text-[#0D0D0D] font-bold">•</span>
@@ -456,7 +456,7 @@ function VenueDetailsContent() {
               className="w-12 h-12 rounded-full bg-white border border-[#D3D3D3] flex items-center justify-center shadow-sm hover:bg-neutral-50 transition-colors cursor-pointer text-[#1C1B1C]"
               title="Share / Copy Link"
             >
-              <img src="/Icons/downloadIcon.svg" alt="Download/Share" className="w-5 h-5 object-contain" />
+              <Image src="/Icons/downloadIcon.svg" alt="Download/Share" className="w-5 h-5 object-contain" width={20} height={20} />
             </button>
             <button
               onClick={() => setIsFavorite(!isFavorite)}
@@ -864,7 +864,7 @@ function VenueDetailsContent() {
                     <div className="flex items-end gap-5 w-[284px] h-[27px] mb-6">
                       <div className="flex items-center gap-3 w-[188px] h-[27px]">
                         {[1, 2, 3, 4, 5].map((s) => (
-                          <img key={s} src="/Icons/rattingfull.svg" alt="star" className="w-[28px] h-[27px] object-contain" />
+                          <Image key={s} src="/Icons/rattingfull.svg" alt="star" className="w-[28px] h-[27px] object-contain" width={24} height={24} />
                         ))}
                       </div>
                       <div className="flex items-start gap-1 w-[76px] h-6 font-semibold">
@@ -902,7 +902,7 @@ function VenueDetailsContent() {
                               {/* Stars row */}
                               <div className="flex items-start gap-1 w-[108px] h-4">
                                 {[1, 2, 3, 4, 5].map((s) => (
-                                  <img key={s} src="/Icons/rattingfull.svg" alt="star" className="w-4 h-4 object-contain" />
+                                  <Image key={s} src="/Icons/rattingfull.svg" alt="star" className="w-4 h-4 object-contain" width={16} height={16} />
                                 ))}
                               </div>
                             </div>
@@ -1109,7 +1109,7 @@ function VenueDetailsContent() {
                   {/* Phone */}
                   <div className="flex items-center gap-3 w-full h-[24px]">
                     <div className="w-6 h-6 relative shrink-0">
-                      <img src="/Icons/phone.svg" alt="Phone" className="w-6 h-6 object-contain filter opacity-60" />
+                      <Image src="/Icons/phone.svg" alt="Phone" className="w-6 h-6 object-contain filter opacity-60" width={24} height={24} />
                     </div>
                     <span className="font-inter font-normal text-[15.9px] text-[#767676]">
                       {mockVenueDetails.phone}
@@ -1120,14 +1120,14 @@ function VenueDetailsContent() {
                   <div className="flex flex-col gap-5 pt-2">
                     <a href={mockVenueDetails.facebookUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:opacity-85 transition-opacity">
                       <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0">
-                        <img src="/Icons/FacebookGray.svg" alt="Facebook" className="w-4 h-4 object-contain" />
+                        <Image src="/Icons/FacebookGray.svg" alt="Facebook" className="w-4 h-4 object-contain" width={16} height={16} />
                       </div>
                       <span className="font-poppins font-normal text-base text-[#767676]">Facebook</span>
                     </a>
 
                     <a href={mockVenueDetails.instagramUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:opacity-85 transition-opacity">
                       <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0">
-                        <img src="/Icons/instagram.svg" alt="Instagram" className="w-4 h-4 object-contain" />
+                        <Image src="/Icons/instagram.svg" alt="Instagram" className="w-4 h-4 object-contain" width={16} height={16} />
                       </div>
                       <span className="font-poppins font-normal text-base text-[#767676]">Instagram</span>
                     </a>
@@ -1150,7 +1150,7 @@ function VenueDetailsContent() {
                     <span className="font-inter font-semibold text-2xl leading-8 text-[#0D0D0D]">5.0</span>
                     <div className="flex items-center gap-1 w-[136px] h-6 justify-center">
                       {[1, 2, 3, 4, 5].map((s) => (
-                        <img key={s} src="/Icons/rattingfull.svg" alt="star" className="w-6 h-6 object-contain" />
+                        <Image key={s} src="/Icons/rattingfull.svg" alt="star" className="w-6 h-6 object-contain" width={24} height={24} />
                       ))}
                     </div>
                     <span className="font-inter font-medium text-[23.8px] leading-8 text-[#4E5F78]">(809)</span>
@@ -1210,7 +1210,7 @@ function VenueDetailsContent() {
                       {/* Phone */}
                       <div className="flex items-center gap-3 w-full h-[24px]">
                         <div className="w-6 h-6 relative shrink-0">
-                          <img src="/Icons/phone.svg" alt="Phone" className="w-6 h-6 object-contain" />
+                          <Image src="/Icons/phone.svg" alt="Phone" className="w-6 h-6 object-contain" width={24} height={24} />
                         </div>
                         <span className="font-inter font-normal text-[15.9px] text-[#767676]">
                           {mockVenueDetails.phone}
@@ -1227,14 +1227,14 @@ function VenueDetailsContent() {
                       <div className="flex flex-col gap-5 pt-2">
                         <a href={mockVenueDetails.facebookUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:opacity-85 transition-opacity">
                           <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0">
-                            <img src="/Icons/FacebookGray.svg" alt="Facebook" className="w-4 h-4 object-contain" />
+                            <Image src="/Icons/FacebookGray.svg" alt="Facebook" className="w-4 h-4 object-contain" width={16} height={16} />
                           </div>
                           <span className="font-poppins font-normal text-base text-[#767676]">Facebook</span>
                         </a>
 
                         <a href={mockVenueDetails.instagramUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:opacity-85 transition-opacity">
                           <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0">
-                            <img src="/Icons/instagram.svg" alt="Instagram" className="w-4 h-4 object-contain" />
+                            <Image src="/Icons/instagram.svg" alt="Instagram" className="w-4 h-4 object-contain" width={16} height={16} />
                           </div>
                           <span className="font-poppins font-normal text-base text-[#767676]">Instagram</span>
                         </a>
@@ -1255,7 +1255,7 @@ function VenueDetailsContent() {
                       }}
                       className="w-full h-12 bg-[#0D0D0D] border border-[#0D0D0D] text-white font-poppins font-medium text-base rounded-[12px] hover:opacity-95 transition-opacity cursor-pointer flex items-center justify-center gap-2 shadow-sm"
                     >
-                      <img src="/image/smallBlacklogo.svg" alt="Bookly" className="w-5 h-5 object-contain invert brightness-0" />
+                      <Image src="/image/smallBlacklogo.svg" alt="Bookly" className="w-5 h-5 object-contain invert brightness-0" width={20} height={20} />
                       <span className="w-[78px] h-[24px] flex items-center justify-center">Book now</span>
                     </button>
 
@@ -1278,7 +1278,7 @@ function VenueDetailsContent() {
                       {/* Address and Get Directions */}
                       <div className="flex items-center gap-2 w-full">
                         <div className="w-6 h-6 relative shrink-0">
-                          <img src="/Icons/phone.svg" className="w-6 h-6 object-contain filter opacity-60" alt="Phone" />
+                          <Image src="/Icons/phone.svg" className="w-6 h-6 object-contain filter opacity-60" alt="Phone" width={24} height={24} />
                         </div>
                         <div className="flex items-center gap-1.5 min-w-0">
                           <span className="font-inter font-normal text-[15.8px] text-[#767676] truncate shrink">
@@ -1302,15 +1302,15 @@ function VenueDetailsContent() {
                       {/* Blurred elements under the lock */}
                       <div className="flex flex-col gap-5 w-full p-4 filter blur-[5px] select-none pointer-events-none opacity-50">
                         <div className="flex items-center ">
-                          <img src="/Icons/phone.svg" alt="Phone" className="w-5 h-5 object-contain" />
+                          <Image src="/Icons/phone.svg" alt="Phone" className="w-5 h-5 object-contain" width={20} height={20} />
                           <span>{mockVenueDetails.phone}</span>
                         </div>
                         <div className="flex items-center ">
-                          <img src="/Icons/FacebookGray.svg" alt="Facebook" className="w-5 h-5 object-contain" />
+                          <Image src="/Icons/FacebookGray.svg" alt="Facebook" className="w-5 h-5 object-contain" width={20} height={20} />
                           <span>Facebook</span>
                         </div>
                         <div className="flex items-center ">
-                          <img src="/Icons/instagram.svg" alt="Instagram" className="w-5 h-5 object-contain" />
+                          <Image src="/Icons/instagram.svg" alt="Instagram" className="w-5 h-5 object-contain" width={20} height={20} />
                           <span>Instagram</span>
                         </div>
                       </div>
@@ -1593,7 +1593,7 @@ function VenueDetailsContent() {
                   {selectedList.length === 0 && (
                     <div className="flex items-center gap-1.5 text-sm text-[#0d0d0d] font-semibold mt-1">
                       <span>5.0</span>
-                      <img src="/Icons/rattingfull.svg" alt="star" className="w-4 h-4 object-contain" />
+                      <Image src="/Icons/rattingfull.svg" alt="star" className="w-4 h-4 object-contain" width={16} height={16} />
                       <span className="font-normal text-[#757575]">({mockVenueDetails.reviewsCount} Reviews)</span>
                     </div>
                   )}
@@ -1677,11 +1677,11 @@ function VenueDetailsContent() {
                   <div className="relative w-full h-[120px] border border-neutral-100 rounded-xl bg-white overflow-hidden mt-2">
                     <div className="flex flex-col gap-3 p-4 filter blur-[3px] select-none pointer-events-none opacity-50">
                       <div className="flex items-center gap-2">
-                        <img src="/Icons/phone.svg" alt="Phone" className="w-5 h-5 object-contain" />
+                        <Image src="/Icons/phone.svg" alt="Phone" className="w-5 h-5 object-contain" width={20} height={20} />
                         <span>{mockVenueDetails.phone}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <img src="/Icons/FacebookGray.svg" alt="Facebook" className="w-5 h-5 object-contain" />
+                        <Image src="/Icons/FacebookGray.svg" alt="Facebook" className="w-5 h-5 object-contain" width={20} height={20} />
                         <span>Facebook</span>
                       </div>
                     </div>
@@ -1695,7 +1695,7 @@ function VenueDetailsContent() {
                   <>
                     <div className="flex items-center gap-3 w-full h-[24px]">
                       <div className="w-6 h-6 relative shrink-0">
-                        <img src="/Icons/phone.svg" alt="Phone" className="w-6 h-6 object-contain filter opacity-60" />
+                        <Image src="/Icons/phone.svg" alt="Phone" className="w-6 h-6 object-contain filter opacity-60" width={24} height={24} />
                       </div>
                       <span className="font-inter font-normal text-[15.9px] text-[#767676]">
                         {mockVenueDetails.phone}
@@ -1706,14 +1706,14 @@ function VenueDetailsContent() {
                     <div className="flex flex-col gap-5 pt-2">
                       <a href={mockVenueDetails.facebookUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:opacity-85 transition-opacity">
                         <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0">
-                          <img src="/Icons/FacebookGray.svg" alt="Facebook" className="w-4 h-4 object-contain" />
+                          <Image src="/Icons/FacebookGray.svg" alt="Facebook" className="w-4 h-4 object-contain" width={16} height={16} />
                         </div>
                         <span className="font-poppins font-normal text-base text-[#767676]">Facebook</span>
                       </a>
 
                       <a href={mockVenueDetails.instagramUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:opacity-85 transition-opacity">
                         <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0">
-                          <img src="/Icons/instagram.svg" alt="Instagram" className="w-4 h-4 object-contain" />
+                          <Image src="/Icons/instagram.svg" alt="Instagram" className="w-4 h-4 object-contain" width={16} height={16} />
                         </div>
                         <span className="font-poppins font-normal text-base text-[#767676]">Instagram</span>
                       </a>

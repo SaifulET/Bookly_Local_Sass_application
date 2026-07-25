@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -178,7 +179,7 @@ export default function SettingsPage() {
       <EdgeSoftOrbsTop size={380} duration={56} intensity={0.85} blend="screen" zIndex={-5} />
 
       <div className="absolute top-0 left-0 -z-10 w-full pointer-events-none opacity-40">
-        <img src="/designImg/topEllipes.svg" alt="" className="absolute top-0 left-0 w-[500px] h-[500px]" />
+        <Image src="/designImg/topEllipes.svg" alt="" className="absolute top-0 left-0 w-[500px] h-[500px]" width={24} height={24} />
       </div>
 
       {/* App Install Banner */}
@@ -186,7 +187,7 @@ export default function SettingsPage() {
         <div className="w-full bg-[#96C3CD] text-[#111111] px-3 sm:px-[16px] py-2.5 sm:py-[16px] flex items-center justify-between transition-all duration-300 relative z-50 text-[10px] sm:text-xs md:text-sm font-medium">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <div className="w-[17px] h-[20px] flex items-center justify-center shrink-0">
-              <img src="/img/smallBLogo.svg" alt="B" className="w-full h-full object-contain" />
+              <Image src="/img/smallBLogo.svg" alt="B" className="w-full h-full object-contain" fill />
             </div>
             <span className="truncate">Book local services in Cyprus — instantly, any time</span>
           </div>
@@ -253,7 +254,7 @@ export default function SettingsPage() {
           <section className="bg-white border border-[#C6C6CB] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-xl flex flex-col items-start overflow-hidden">
             <div className="w-full box-border border-b border-[#C6C6CB] px-6 py-4 flex flex-row items-center gap-2">
               <div className="w-5 h-5 flex items-center justify-center">
-                <img src="/settingsIcons/link.svg" alt="Link" className="w-full h-full object-contain" />
+                <Image src="/settingsIcons/link.svg" alt="Link" className="w-full h-full object-contain" fill />
               </div>
               <h2 className="font-manrope font-bold text-lg leading-[28px] text-[#020305]">
                 Linked Accounts
@@ -266,7 +267,7 @@ export default function SettingsPage() {
               <div className="w-full box-border flex flex-row justify-between items-center p-4 border border-[#C6C6CB] rounded-lg">
                 <div className="flex flex-row items-center gap-4">
                   <div className="w-10 h-10 bg-[#EBE7E7] rounded-full flex items-center justify-center shrink-0">
-                    <img src="/settingsIcons/google.svg" alt="Google" className="w-6 h-6 object-contain" />
+                    <Image src="/settingsIcons/google.svg" alt="Google" className="w-6 h-6 object-contain" width={24} height={24} />
                   </div>
                   <div className="flex flex-col">
                     <div className="flex items-center gap-2">
@@ -294,7 +295,7 @@ export default function SettingsPage() {
               <div className="w-full box-border flex flex-row justify-between items-center p-4 border border-[#C6C6CB] rounded-lg">
                 <div className="flex flex-row items-center gap-4">
                   <div className="w-10 h-10 bg-[#EBE7E7] rounded-full flex items-center justify-center shrink-0">
-                    <img src="/settingsIcons/facebook.svg" alt="Facebook" className="w-6 h-6 object-contain" />
+                    <Image src="/settingsIcons/facebook.svg" alt="Facebook" className="w-6 h-6 object-contain" width={24} height={24} />
                   </div>
                   <div className="flex flex-col">
                     <div className="flex items-center gap-2">
@@ -322,7 +323,7 @@ export default function SettingsPage() {
               <div className="w-full box-border flex flex-row justify-between items-center p-4 border border-[#C6C6CB] rounded-lg">
                 <div className="flex flex-row items-center gap-4">
                   <div className="w-10 h-10 bg-[#EBE7E7] rounded-full flex items-center justify-center shrink-0">
-                    <img src="/settingsIcons/apple.svg" alt="Apple" className="w-6 h-6 object-contain" />
+                    <Image src="/settingsIcons/apple.svg" alt="Apple" className="w-6 h-6 object-contain" width={24} height={24} />
                   </div>
                   <div className="flex flex-col">
                     <div className="flex items-center gap-2">
@@ -353,7 +354,7 @@ export default function SettingsPage() {
           <section className="bg-white border border-[#C6C6CB] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-xl flex flex-col items-start overflow-hidden">
             <div className="w-full box-border border-b border-[#C6C6CB] px-6 py-4 flex flex-row items-center gap-2">
               <div className="w-5 h-5 flex items-center justify-center">
-                <img src="/settingsIcons/notification.svg" alt="Notification" className="w-full h-full object-contain" />
+                <Image src="/settingsIcons/notification.svg" alt="Notification" className="w-full h-full object-contain" fill />
               </div>
               <h2 className="font-manrope font-bold text-lg leading-[28px] text-[#020305]">
                 Notification Preferences
@@ -456,7 +457,7 @@ export default function SettingsPage() {
           <section className="bg-white border border-[#C6C6CB] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-xl flex flex-col items-start relative z-20">
             <div className="w-full box-border border-b border-[#C6C6CB] px-6 py-4 flex flex-row items-center gap-2">
               <div className="w-5 h-5 flex items-center justify-center">
-                <img src="/settingsIcons/preferences.svg" alt="Preferences" className="w-full h-full object-contain" />
+                <Image src="/settingsIcons/preferences.svg" alt="Preferences" className="w-full h-full object-contain" fill />
               </div>
               <h2 className="font-manrope font-bold text-lg leading-[28px] text-[#020305]">
                 General Preferences
@@ -474,11 +475,7 @@ export default function SettingsPage() {
                   className="w-full box-border flex flex-row justify-between items-center p-3 bg-white border border-[#C6C6CB] rounded-lg text-left cursor-pointer"
                 >
                   <div className="flex items-center gap-2 min-w-0">
-                    <img
-                      src={`https://flagcdn.com/w20/${selectedLang.iso}.png`}
-                      alt={selectedLang.name}
-                      className="w-5 h-3.5 object-cover shrink-0"
-                    />
+                    <Image src={`https://flagcdn.com/w20/${selectedLang.iso}.png`} alt={selectedLang.name} className="w-5 h-3.5 object-cover shrink-0" width={20} height={12} />
                     <span className="font-manrope font-normal text-base text-[#1C1B1C] truncate">
                       {selectedLang.name}
                     </span>
@@ -512,11 +509,7 @@ export default function SettingsPage() {
                             }}
                             className="flex items-center gap-2 px-3 py-2 hover:bg-neutral-50 text-left w-full transition-colors cursor-pointer"
                           >
-                            <img
-                              src={`https://flagcdn.com/w20/${c.iso}.png`}
-                              alt={c.name}
-                              className="w-5 h-3.5 object-cover shrink-0"
-                            />
+                            <Image src={`https://flagcdn.com/w20/${c.iso}.png`} alt={c.name} className="w-5 h-3.5 object-cover shrink-0" width={20} height={12} />
                             <span className="font-manrope font-normal text-sm text-[#1C1B1C]">
                               {c.name}
                             </span>
@@ -568,7 +561,7 @@ export default function SettingsPage() {
           <section className="bg-white border border-[#C6C6CB] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-xl flex flex-col items-start overflow-hidden">
             <div className="w-full box-border border-b border-[#C6C6CB] px-6 py-4 flex flex-row items-center gap-2">
               <div className="w-4 h-5 flex items-center justify-center">
-                <img src="/settingsIcons/security.svg" alt="Security" className="w-full h-full object-contain" />
+                <Image src="/settingsIcons/security.svg" alt="Security" className="w-full h-full object-contain" fill />
               </div>
               <h2 className="font-manrope font-bold text-lg leading-[28px] text-[#020305]">
                 Security & Data

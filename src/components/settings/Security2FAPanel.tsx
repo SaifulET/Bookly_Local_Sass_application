@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowLeft01Icon } from "@hugeicons/core-free-icons";
@@ -87,7 +88,7 @@ export const Security2FAPanel: React.FC = () => {
               <div className="flex gap-4">
                 {/* Custom Gradient Icon Container */}
                 <div className="w-12 h-12 rounded-[16px] bg-gradient-to-b from-[#0CC0DF]/20 to-[#0CC0DF]/20 bg-[#8EBAC5] flex items-center justify-center shrink-0">
-                  <img src="/Icons/Email.svg" alt="Email" className="w-6 h-6 object-contain" />
+                  <Image src="/Icons/Email.svg" alt="Email" className="w-6 h-6 object-contain" width={24} height={24} />
                 </div>
 
                 <div className="flex flex-col">
