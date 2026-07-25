@@ -50,7 +50,7 @@ export default function ServiceCard({
     >
       {/* Card Image Area */}
       <div className="relative w-full h-[140px] xs:h-[180px] sm:h-[220px] md:h-[241px] p-[4px] bg-transparent overflow-hidden shrink-0">
-        <Image src={rec.image} alt={rec.title} className="w-full h-[132px] xs:h-[172px] sm:h-[212px] md:h-[233px] rounded-[8px] object-cover group-hover:scale-105 transition-transform duration-300" draggable="false" width={24} height={24} />
+        <Image src={rec.image} alt={rec.title} className="w-full h-full rounded-[8px] object-cover group-hover:scale-105 transition-transform duration-300" draggable="false" fill />
 
         {/* Premium Diamond Badge Overlay (Top Left) */}
         {hasDiamond && (
