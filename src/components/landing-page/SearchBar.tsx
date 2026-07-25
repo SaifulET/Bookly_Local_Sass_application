@@ -44,22 +44,31 @@ export default function SearchBar({ onSearch, className = "" }: SearchBarProps) 
   const [dropdownWidth, setDropdownWidth] = useState<number | null>(null);
 
   useEffect(() => {
+    let frameId: number;
     const updateWidth = () => {
-      if (searchBarRef.current && timeSelectorRef.current) {
-        const searchRect = searchBarRef.current.getBoundingClientRect();
-        const timeRect = timeSelectorRef.current.getBoundingClientRect();
-        const width = (timeRect.left + timeRect.width / 2) - searchRect.left;
-        setDropdownWidth(width);
+      if (frameId) {
+        cancelAnimationFrame(frameId);
       }
+      frameId = requestAnimationFrame(() => {
+        if (searchBarRef.current && timeSelectorRef.current) {
+          const searchRect = searchBarRef.current.getBoundingClientRect();
+          const timeRect = timeSelectorRef.current.getBoundingClientRect();
+          const width = (timeRect.left + timeRect.width / 2) - searchRect.left;
+          setDropdownWidth(width);
+        }
+      });
     };
 
     updateWidth();
-    window.addEventListener("resize", updateWidth);
+    window.addEventListener("resize", updateWidth, { passive: true });
     const timer = setTimeout(updateWidth, 100);
 
     return () => {
       window.removeEventListener("resize", updateWidth);
       clearTimeout(timer);
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
     };
   }, [showSearchDropdown]);
 
