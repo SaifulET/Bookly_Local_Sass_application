@@ -170,10 +170,7 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Paragraph Description */}
-            <p className="add-home-screen-desc font-manrope font-normal text-xs sm:text-sm lg:text-[15px] lg:leading-[22px] text-[#FCFAF9] opacity-90 max-w-[509px]">
-              No app store downloads required. Install Bookly directly from your browser to get instant access, offline bookings, and local updates right on your home screen.
-            </p>
+
           </div>
 
           {/* Install Button Container */}
