@@ -181,23 +181,38 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Right Side: Mockups */}
-          <div className="absolute right-0 bottom-0 top-0 overflow-visible w-[50%] pointer-events-none hidden md:block">
-            <div className="relative w-full h-full">
-              <BusinessMockup />
-              <div className="absolute bottom-0 right-[40px] xl:right-[150px] w-[220px] h-[360px] xl:w-[277px] xl:h-[455px] z-10 overflow-visible add-home-screen-phone-wrapper">
-                <Image
-                  src="/img/mobile.png"
-                  alt="Bookly App Mockup"
-                  className="object-fill z-10 max-w-none mockup-image-fixed"
-                  draggable="false"
-                  fill
-                />
-              </div>
+          {/* Right Side: Phone Image mockup */}
+          <div className="absolute right-[16px] md:right-[20px] lg:right-[150px] z-0 sm:z-20 pointer-events-none mockup-container-fixed">
+            <div className="relative w-full h-full flex items-center justify-center">
+              {/* Ellipse 133 Glow Light behind phone */}
+              <div
+                className="absolute pointer-events-none -z-10 opacity-90"
+                style={{
+                  width: "244.85px",
+                  height: "478.55px",
+                  left: "50%",
+                  top: "50%",
+                  transform: "translate(-50%, -50%) rotate(6.83deg)",
+                  background: "rgba(255, 255, 255, 0.8)",
+                  filter: "blur(100px)",
+                }}
+              />
+              <Image
+                src="/img/mobile.png"
+                alt="Bookly App Mockup"
+                style={{
+                  transform: "rotate(6.83deg)"
+                }}
+                className="object-fill z-10 max-w-none mockup-image-fixed"
+                draggable="false"
+                fill
+              />
             </div>
           </div>
         </div>
       </section>
+
+      <BusinessMockup />
 
       {/* 13. FAQ Section */}
       <FaqSection />
