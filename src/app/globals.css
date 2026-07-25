@@ -230,32 +230,64 @@ body {
   }
 }
 
-/* Responsive adjustments for home screen layout elements (only active on mobile/tablet screens < 1024px) */
-@media (max-width: 1023px) {
+/* Responsive adjustments for home screen layout elements */
+@media (max-width: 767px) {
+  .add-home-screen-banner-card {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 32px 20px 0px 20px !important;
+    overflow: hidden !important;
+  }
   .add-home-screen-content-wrapper {
-    left: 20px !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    align-items: center !important;
+    text-align: center !important;
+    max-width: 100% !important;
+    gap: 12px !important;
   }
   .add-home-screen-check-icon {
-    width: 16px !important;
-    height: 16px !important;
+    width: 18px !important;
+    height: 18px !important;
   }
   .add-home-screen-check-icon svg {
-    width: 10px !important;
-    height: 10px !important;
+    width: 11px !important;
+    height: 11px !important;
   }
   .add-home-screen-arrow-icon {
-    width: 50px !important;
-    height: 56px !important;
-    left: 35px !important;
-    top: 165px !important;
+    display: none !important;
   }
   .add-home-screen-btn-container {
-    left: 90px !important;
-    top: 205px !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin-top: 16px !important;
+    margin-bottom: 24px !important;
+    display: flex !important;
+    justify-content: center !important;
+    z-index: 20 !important;
+  }
+  .mockup-container-fixed {
+    position: relative !important;
+    right: auto !important;
+    top: 0 !important;
+    margin-top: 10px !important;
+    width: 170px !important;
+    height: 280px !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .mockup-image-fixed {
+    width: 170px !important;
+    height: 280px !important;
   }
 }
 
-@media (min-width: 400px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .add-home-screen-content-wrapper {
     left: 37px !important;
   }
