@@ -174,15 +174,24 @@ export default function LandingPage() {
             <p className="add-home-screen-desc font-manrope font-normal text-xs sm:text-sm lg:text-[15px] lg:leading-[22px] text-[#FCFAF9] opacity-90 max-w-[509px]">
               No app store downloads required. Install Bookly directly from your browser to get instant access, offline bookings, and local updates right on your home screen.
             </p>
+          </div>
 
-            {/* Button */}
-            <div className="mt-2 lg:mt-4">
-              <AddToHomeScreenButton />
-            </div>
+          {/* Install Button Container */}
+          <div className="absolute left-[150px] xl:left-[378px] top-[250px] xl:top-[347px] z-20 add-home-screen-btn-container">
+            <AddToHomeScreenButton
+              className="z-10 scale-75 xl:scale-100 origin-left add-home-screen-btn"
+              showTextOnMobile={true}
+              size="large"
+            />
+          </div>
+
+          {/* Curved Arrow Image */}
+          <div className="absolute left-[120px] xl:left-[256px] top-[215px] xl:top-[245px] w-[36px] xl:w-[114px] h-[40px] xl:h-[151px] pointer-events-none opacity-95 z-20 add-home-screen-arrow-icon">
+            <Image src="/Icons/direction.png" alt="Direction Arrow" className="w-full h-full object-contain" draggable="false" fill />
           </div>
 
           {/* Right Side: Phone Image mockup */}
-          <div className="absolute right-[16px] md:right-[20px] lg:right-[150px] z-0 sm:z-20 pointer-events-none mockup-container-fixed hidden sm:block">
+          <div className="absolute right-[16px] md:right-[20px] lg:right-[150px] z-0 sm:z-20 pointer-events-none mockup-container-fixed">
             <div className="relative w-full h-full flex items-center justify-center">
               {/* Ellipse 133 Glow Light behind phone */}
               <div
