@@ -50,7 +50,7 @@ export default function ServiceCard({
     >
       {/* Card Image Area */}
       <div className="relative w-full h-[140px] xs:h-[180px] sm:h-[220px] md:h-[241px] p-[4px] bg-transparent overflow-hidden shrink-0">
-        <Image src={rec.image} alt={rec.title} className="w-full h-full rounded-[8px] object-cover group-hover:scale-105 transition-transform duration-300" draggable="false" fill />
+        <Image src={rec.image} alt={rec.title} className="w-full h-full rounded-[8px] object-cover group-hover:scale-105 transition-transform duration-300" draggable="false" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px" loading="eager" />
 
         {/* Premium Diamond Badge Overlay (Top Left) */}
         {hasDiamond && (
@@ -141,13 +141,17 @@ export default function ServiceCard({
           </div>
         ) : (
           <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs text-[#757575] font-medium">
-              <HugeiconsIcon icon={Location01Icon} size={12} className="sm:hidden" />
-              <HugeiconsIcon icon={Location01Icon} size={16} className="hidden sm:inline" />
-              <span>{rec.location}</span>
-              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-neutral-300 mx-0.5 sm:mx-1"></span>
-              <span>{rec.distance}</span>
-            </div>
+            {(rec.location || rec.distance) && (
+              <div className="flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs text-[#757575] font-medium">
+                <HugeiconsIcon icon={Location01Icon} size={12} className="sm:hidden" />
+                <HugeiconsIcon icon={Location01Icon} size={16} className="hidden sm:inline" />
+                {rec.location && <span>{rec.location}</span>}
+                {rec.location && rec.distance && (
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-neutral-300 mx-0.5 sm:mx-1"></span>
+                )}
+                {rec.distance && <span>{rec.distance}</span>}
+              </div>
+            )}
             {rec.lastVisited && (
               <span className="text-[9px] sm:text-[11px] text-[#757575] font-medium pl-4 sm:pl-5">{rec.lastVisited}</span>
             )}

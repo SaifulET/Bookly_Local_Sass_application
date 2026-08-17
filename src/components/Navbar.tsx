@@ -119,9 +119,9 @@ export default function Navbar({
         <div className="flex items-center">
           <div className="cursor-pointer shrink-0" onClick={() => { sessionStorage.removeItem("scrollToHowItWorks"); router.push("/"); }}>
             {isLoggedIn ? (
-              <Image src="/image/smallBlacklogo.svg" alt="Bookly" className="h-8 md:h-[44px] w-9 object-contain" width={36} height={32} />
+              <Image src="/image/smallBlacklogo.svg" alt="Bookly" className="h-8 md:h-[44px] w-9 object-contain" width={36} height={32} style={{ height: "auto" }} />
             ) : (
-              <Image src="/img/logoo.svg" alt="Bookly" className="h-8 md:h-[44px] w-[120px] object-contain" width={32} height={32} />
+              <Image src="/img/logoo.svg" alt="Bookly" className="h-8 md:h-[44px] w-[120px] object-contain" width={32} height={32} style={{ height: "auto" }} />
             )}
           </div>
         </div>
