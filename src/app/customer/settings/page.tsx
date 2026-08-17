@@ -186,8 +186,8 @@ export default function SettingsPage() {
       {showBanner && (
         <div className="w-full bg-[#96C3CD] text-[#111111] px-3 sm:px-[16px] py-2.5 sm:py-[16px] flex items-center justify-between transition-all duration-300 relative z-50 text-[10px] sm:text-xs md:text-sm font-medium">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-            <div className="w-[17px] h-[20px] flex items-center justify-center shrink-0">
-              <Image src="/img/smallBLogo.svg" alt="B" className="w-full h-full object-contain" fill />
+            <div className="w-[17px] h-[20px] relative shrink-0">
+              <Image src="/img/smallBLogo.svg" alt="B" className="object-contain" fill sizes="17px" />
             </div>
             <span className="truncate">Book local services in Cyprus — instantly, any time</span>
           </div>
@@ -253,8 +253,8 @@ export default function SettingsPage() {
           {/* Linked Accounts Section */}
           <section className="bg-white border border-[#C6C6CB] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-xl flex flex-col items-start overflow-hidden">
             <div className="w-full box-border border-b border-[#C6C6CB] px-6 py-4 flex flex-row items-center gap-2">
-              <div className="w-5 h-5 flex items-center justify-center">
-                <Image src="/settingsIcons/link.svg" alt="Link" className="w-full h-full object-contain" fill />
+              <div className="w-5 h-5 relative">
+                <Image src="/settingsIcons/link.svg" alt="Link" className="object-contain" fill sizes="20px" />
               </div>
               <h2 className="font-manrope font-bold text-lg leading-[28px] text-[#020305]">
                 Linked Accounts
@@ -353,8 +353,8 @@ export default function SettingsPage() {
           {/* Notification Preferences Section */}
           <section className="bg-white border border-[#C6C6CB] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-xl flex flex-col items-start overflow-hidden">
             <div className="w-full box-border border-b border-[#C6C6CB] px-6 py-4 flex flex-row items-center gap-2">
-              <div className="w-5 h-5 flex items-center justify-center">
-                <Image src="/settingsIcons/notification.svg" alt="Notification" className="w-full h-full object-contain" fill />
+              <div className="w-5 h-5 relative">
+                <Image src="/settingsIcons/notification.svg" alt="Notification" className="object-contain" fill sizes="20px" />
               </div>
               <h2 className="font-manrope font-bold text-lg leading-[28px] text-[#020305]">
                 Notification Preferences
@@ -456,8 +456,8 @@ export default function SettingsPage() {
           {/* General Preferences Section */}
           <section className="bg-white border border-[#C6C6CB] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-xl flex flex-col items-start relative z-20">
             <div className="w-full box-border border-b border-[#C6C6CB] px-6 py-4 flex flex-row items-center gap-2">
-              <div className="w-5 h-5 flex items-center justify-center">
-                <Image src="/settingsIcons/preferences.svg" alt="Preferences" className="w-full h-full object-contain" fill />
+              <div className="w-5 h-5 relative">
+                <Image src="/settingsIcons/preferences.svg" alt="Preferences" className="object-contain" fill sizes="20px" />
               </div>
               <h2 className="font-manrope font-bold text-lg leading-[28px] text-[#020305]">
                 General Preferences
@@ -475,7 +475,7 @@ export default function SettingsPage() {
                   className="w-full box-border flex flex-row justify-between items-center p-3 bg-white border border-[#C6C6CB] rounded-lg text-left cursor-pointer"
                 >
                   <div className="flex items-center gap-2 min-w-0">
-                    <Image src={`https://flagcdn.com/w20/${selectedLang.iso}.png`} alt={selectedLang.name} className="w-5 h-3.5 object-cover shrink-0" width={20} height={12} />
+                    <Image src={`https://flagcdn.com/w20/${selectedLang.iso}.png`} alt={selectedLang.name} className="w-5 h-3.5 object-cover shrink-0" width={20} height={12} style={{ height: "auto" }} />
                     <span className="font-manrope font-normal text-base text-[#1C1B1C] truncate">
                       {selectedLang.name}
                     </span>
@@ -509,7 +509,7 @@ export default function SettingsPage() {
                             }}
                             className="flex items-center gap-2 px-3 py-2 hover:bg-neutral-50 text-left w-full transition-colors cursor-pointer"
                           >
-                            <Image src={`https://flagcdn.com/w20/${c.iso}.png`} alt={c.name} className="w-5 h-3.5 object-cover shrink-0" width={20} height={12} />
+                            <Image src={`https://flagcdn.com/w20/${c.iso}.png`} alt={c.name} className="w-5 h-3.5 object-cover shrink-0" width={20} height={12} style={{ height: "auto" }} />
                             <span className="font-manrope font-normal text-sm text-[#1C1B1C]">
                               {c.name}
                             </span>
@@ -560,8 +560,8 @@ export default function SettingsPage() {
           {/* Security & Data Section */}
           <section className="bg-white border border-[#C6C6CB] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-xl flex flex-col items-start overflow-hidden">
             <div className="w-full box-border border-b border-[#C6C6CB] px-6 py-4 flex flex-row items-center gap-2">
-              <div className="w-4 h-5 flex items-center justify-center">
-                <Image src="/settingsIcons/security.svg" alt="Security" className="w-full h-full object-contain" fill />
+              <div className="w-4 h-5 relative">
+                <Image src="/settingsIcons/security.svg" alt="Security" className="object-contain" fill sizes="16px" />
               </div>
               <h2 className="font-manrope font-bold text-lg leading-[28px] text-[#020305]">
                 Security & Data

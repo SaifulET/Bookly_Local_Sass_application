@@ -31,6 +31,11 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+  // Bypass caching on localhost (development) to avoid Next.js HMR reload loops
+  if (self.location.hostname === "localhost" || self.location.hostname === "127.0.0.1") {
+    return;
+  }
+
   // Respond with cache first, fall back to network
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
