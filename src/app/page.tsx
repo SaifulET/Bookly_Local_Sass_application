@@ -1,12 +1,12 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Search01Icon, SquareLock01Icon } from "@hugeicons/core-free-icons";
 import Carousel from "@/components/landing-page/Carousel";
 import TrustedBusinessCard, { TrustedBusiness } from "@/components/TrustedBusinessCard";
 import WhyChooseUs from "@/components/landing-page/WhyChooseUs";
-import AddToHomeScreenButton from "@/components/landing-page/AddToHomeScreenButton";
+import PWAWidget from "@/components/landing-page/PWAWidget";
+import BusinessCTA from "@/components/landing-page/BusinessCTA";
 import BusinessMockup from "@/components/landing-page/BusinessMockup";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
@@ -151,116 +151,10 @@ export default function LandingPage() {
       <WhyChooseUs />
 
       {/* 12. Add Bookly to Your Home Screen Section */}
-      <section className="w-full mt-[219px] mb-24 flex justify-center">
-        <div className="w-full h-[320px] md:h-[400px] lg:h-[449px] xl:h-[484px] bg-[#2E9DA7] relative overflow-visible z-10">
-          {/* Left Side: Content */}
-          <div className="absolute left-[37px] top-[38px] xl:left-[141px] text-white z-10 flex flex-col items-start gap-2.5 sm:gap-4 md:gap-5 max-w-[calc(100%-140px)] lg:max-w-[636px] add-home-screen-content-wrapper">
-            <h2 className="add-home-screen-title sm:text-[32px] lg:text-[54px] lg:leading-[64px] font-poppins font-medium text-[#FCFAF9] tracking-tight">
-              Add Bookly to your <br /> home screen
-            </h2>
-
-            {/* Subtitle tick frame */}
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="add-home-screen-subtitle sm:text-base md:text-[18px] md:leading-[26px] font-poppins font-medium text-[#FCFAF9]">
-                Book any local services instantly
-              </span>
-              <div className="w-6 h-6 border-[1.5px] border-[#FCFAF9] rounded-full flex items-center justify-center shrink-0 add-home-screen-check-icon">
-                <svg className="w-3.5 h-3.5 text-[#FCFAF9] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-            </div>
-
-
-          </div>
-
-          {/* Install Button Container */}
-          <div className="absolute left-[150px] xl:left-[378px] top-[250px] xl:top-[347px] z-20 add-home-screen-btn-container">
-            <AddToHomeScreenButton
-              className="z-10 scale-75 xl:scale-100 origin-left add-home-screen-btn"
-              showTextOnMobile={true}
-              size="large"
-            />
-          </div>
-
-          {/* Curved Arrow Image */}
-          <div className="absolute left-[120px] xl:left-[256px] top-[215px] xl:top-[245px] w-[36px] xl:w-[114px] h-[40px] xl:h-[151px] pointer-events-none opacity-95 z-20 add-home-screen-arrow-icon">
-            <Image src="/Icons/direction.png" alt="Direction Arrow" className="w-full h-full object-contain" draggable="false" fill />
-          </div>
-
-          {/* Right Side: Phone Image mockup */}
-          <div className="absolute right-[16px] md:right-[20px] lg:right-[150px] z-0 sm:z-20 pointer-events-none mockup-container-fixed">
-            <div className="relative w-full h-full flex items-center justify-center">
-              {/* Ellipse 133 Glow Light behind phone */}
-              <div
-                className="absolute pointer-events-none -z-10 opacity-90"
-                style={{
-                  width: "244.85px",
-                  height: "478.55px",
-                  left: "50%",
-                  top: "50%",
-                  transform: "translate(-50%, -50%) rotate(6.83deg)",
-                  background: "rgba(255, 255, 255, 0.8)",
-                  filter: "blur(100px)",
-                }}
-              />
-              <Image
-                src="/img/mobile.png"
-                alt="Bookly App Mockup"
-                style={{
-                  transform: "rotate(6.83deg)"
-                }}
-                className="object-fill z-10 max-w-none mockup-image-fixed"
-                draggable="false"
-                fill
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <PWAWidget />
 
       {/* 13. Bookly for Business Section */}
-      <section className="w-full mt-[98px] mb-24 px-4 md:px-8 xl:px-0">
-        <div className="flex flex-col items-center gap-[40px] text-center">
-
-          {/* Header Block (Title and Subtitle) */}
-          <div className="flex flex-col items-center gap-[20px] max-w-[607px]">
-            <h2 className="text-3xl md:text-[36px] font-medium leading-tight md:leading-[48px] text-[#16123E] tracking-tight font-poppins">
-              Bookly for Business
-            </h2>
-            <p className="text-lg md:text-[24px] font-normal leading-normal md:leading-[32px] text-[#757575] font-poppins">
-              Stop losing revenue to no-shows and missed calls.
-            </p>
-          </div>
-
-          {/* Body Description */}
-          <p className="w-full text-lg md:text-[24px] font-normal leading-normal md:leading-[36px] text-black font-sans">
-            Bookly fills your calendar, protects your income, and brings you new customers — automatically
-          </p>
-
-          {/* CTA Button */}
-          <Link
-            href="/list-your-business"
-            className="flex flex-row items-center justify-center py-3 px-6 gap-[8px] w-full sm:w-[290px] h-[48px] bg-[#141414] hover:bg-black text-white rounded-full transition-all active:scale-95 cursor-pointer font-inter font-semibold text-[15.7px] leading-[24px]"
-          >
-            <span>List your Business - It’s free</span>
-            {/* White arrow icon */}
-            <svg
-              className="w-[18px] h-[18px] text-white shrink-0"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </Link>
-
-        </div>
-      </section>
+      <BusinessCTA />
 
       <BusinessMockup />
 
